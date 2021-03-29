@@ -123,7 +123,7 @@ if (isset($_REQUEST['inDay']) && isset($_REQUEST['inMonth'])) {
     $userinputdayname = swedishdays(gmdate("l", $userinputdate));
 
     print("<p>Ja du, det var ju en " . $userinputdayname . " som du lade in i fältet</p>");
-    $currentdate = mktime(date());
+    $currentdate = mktime(0, 0, 0, date("m"), date("d"), date("Y"));
 
     if ($userinputdate > $currentdate) {
         //Användaren lade in framtids datum
@@ -160,7 +160,7 @@ if (isset($_REQUEST['username']) && isset($_REQUEST['email'])) {
     $password = $alphas[rand(0, 61)] . $alphas[rand(0, 61)] . $alphas[rand(0, 61)] . $alphas[rand(0, 61)] . $alphas[rand(0, 61)] . $alphas[rand(0, 61)] . $alphas[rand(0, 61)] . $alphas[rand(0, 61)] . $alphas[rand(0, 61)];
     // SPARA LÖSENORDET
     $userinfostorage = fopen("userlogin.txt", "a");
-    fwrite($userinfostorage, $username . $password . \n);
+    fwrite($userinfostorage, $username . $password . "\n");
     fclose($userinfostorage);
 
     $to_email = $useremail;
