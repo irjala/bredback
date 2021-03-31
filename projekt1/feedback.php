@@ -14,6 +14,11 @@
       <?php include "navbar.php"?>
 
 <?php
+include('parsedown.php');
+$contents = file_get_contents('raport.md');
+$Parsedown = new Parsedown();
+echo $Parsedown->text($contents);
+
 if ($_SESSION['feedbackkey'] == "match") {
 echo(
     "<article><h2>Feedback för projekt 1</h2>

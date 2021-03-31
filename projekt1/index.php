@@ -23,42 +23,6 @@
         <article>
             <h1>Projekt 1</h1>
             <p>Back end time... Första projektet finns att beskådas på denna sida.</p>
-            <!-- <p>Test Area</p> -->
-            <?php /*
-$testnumber = 163235525;
-$testnr2 = yearextract($testnumber);
-$testnr3 = daysextract($testnumber);
-print("<p>Hoppeligen funkar denna funktion: " . $testnr2 . " och " . $testnr3 . "</p>");
-
-// Koden jag skrev innan jag hittade date("W");
-$vknrs = 0;
-$todaysyear = date("Y");
-$firstofyear = mktime(01, 01, 01, 01, 01, $todaysyear);
-$foystring = gmdate("l", $firstofyear);
-$currentdate = mktime(date());
-
-$difint = (int)$currentdate - (int)$firstofyear;
-$difremainder = ($difint % 604800);
-print("<p>Equation remainder: " .$difremainder ."</p>");
-$weeknralpha = ($difint - $difremainder) / 604800;
-print("<p>remainder removed and rest divided to be an even number: " .$weeknralpha ."</p>");
-
-if ($foystring == "Sunday" || $foystring == "Saturday" || $foystring == "Friday") {
-$weeknralpha + 1;
-print("<p>Im expecting a higher number: " .$weeknralpha ."</p>");
-}
-else { print("<p>Im expecting a number: " .$weeknralpha ."</p>"); }
-print("<p>Im expecting a number: " .$firstofyear ."</p>");
- */
-?>
-        </article>
-        <br>
-        <article>
-
-        <!-- Article för Uppgift 1 och 2 -->
-
-<h2>Uppgift 1 och 2</h2>
-<!-- separerar tydligt php koden från resten -->
 
 <?php
 /* Uppgift 1 - Superglobal */
@@ -224,8 +188,7 @@ fclose($USERgetlog);
 
 if ($login == "bollkalle" && $password == "plockaboll") {
     $_SESSION['dwaccess'] = "yesyoucan";
-    print("<p>Exclusive darkweb content för vip mannen </p>");
-    print("<a href='darkweb.php'>DARK WEB</a>");
+    print("<a href='profile.php'>Din privata profilsida</a>");
 }
 if ($login == "dennis" || $login == "Dennis") {
     $_SESSION['dwaccess'] = "yesyoucandennis";
@@ -260,7 +223,7 @@ $besoklog = fopen("besok.log", "a+");
 if (!$besoklog) {
     echo ("<p>Accounting problems!</p>");
 } else {
-    fwrite($besoklog, "VIS" . $userIP . " " . $userDude . " " .date("Y-m-d H:i:s") . "\n");
+    fwrite($besoklog, "VIS" . $userIP . " " . $userDude . " " . date("Y-m-d H:i:s") . "\n");
     fclose($besoklog);
 
     $lines = 0;
@@ -280,7 +243,7 @@ if (!$besoklog) {
 
 </article>
 
-<!-- 
+<!--
     HÄR SÅ HANN JAG INTE FIXA GÄSTBOKEN ! ! !
     <article>
 <h2>Gästbok</h2>
@@ -299,11 +262,11 @@ $gmessage = test_input($_GET('message'));
 
 $guestbook = fopen("guestbook.txt", "rw+");
 if (!$guestbook) {
-    echo ("<p>Book is not here...</p>");
+echo ("<p>Book is not here...</p>");
 } else {
-    fwrite($guestbook, $guestname ."\n" .$gemail ."\n" .$gmessage ."\n\n");
-    fread($guestbook, filesize('guestbook.txt'));
-    fclose($guestbook);
+fwrite($guestbook, $guestname ."\n" .$gemail ."\n" .$gmessage ."\n\n");
+fread($guestbook, filesize('guestbook.txt'));
+fclose($guestbook);
 } */
 ?>
 <!--
