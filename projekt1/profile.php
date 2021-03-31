@@ -7,7 +7,7 @@ session_start();
 <body>
 
 <?php
-if ($_SESSION['dwaccess'] == "yesyoucan") {
+if ($_SESSION['access'] == "yesyoucan") {
 print("<p>Session content: </p>");
 print($_SESSION);
 print("<br>Användaren:" . $_SESSION['user']);
@@ -16,7 +16,7 @@ print("<br>Användaren:" . $_SESSION['user']);
 
 // TODO: Annars styr användaren till loginsidan (index.php)
 }
-if ($_SESSION['dwaccess'] == "yesyoucandennis") {
+if ($_SESSION['access'] == "yesyoucandennis") {
     print($_SESSION);
     print("<br>Bra jobbat Dennis, du stavade ditt namn rätt.");
 }

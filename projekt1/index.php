@@ -187,12 +187,12 @@ if (strpos(file_get_contents($USERgetlog), $_GET[$checkstring]) !== false) {
 fclose($USERgetlog);
 
 if ($login == "bollkalle" && $password == "plockaboll") {
-    $_SESSION['dwaccess'] = "yesyoucan";
+    $_SESSION['access'] = "yesyoucan";
     print("<a href='profile.php'>Din privata profilsida</a>");
 }
 if ($login == "dennis" || $login == "Dennis") {
-    $_SESSION['dwaccess'] = "yesyoucandennis";
-    print("<a href='darkweb.php'>DARK WEB</a>");
+    $_SESSION['access'] = "yesyoucandennis";
+    print("<a href='profile.php'>Till DENNIS profilsida</a>");
 } else {
     print("<p>Saker å ting är som de ska vara!</p><br>");
 }
