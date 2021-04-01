@@ -11,6 +11,16 @@ html, body {
     min-height: 100%;           /* Gör sidan full höjd */
     margin: auto;               /* Centrerar innehåll */
 }
+.segment {
+    margin-left:38px;
+    margin-bottom: 10px;
+    padding-left: 15px;
+    max-width:700px;
+    height: auto;
+    border-radius: 3px;
+    border-color: #1abc9c;
+    border-style: solid;
+}
 #CIA {
     background-color: lightgreen;
 }

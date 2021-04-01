@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Jonas.I Back end kurs sida</title>
+    <title>Back-end Jonas style</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -20,9 +20,11 @@
       <?php include "navbar.php"?>
 
         <!-- Artikel för H1 titel OCH min testing area för att snabbare se olika koder -->
-        <article>
+
             <h1>Projekt 1</h1>
-            <p>Back end time... Första projektet finns att beskådas på denna sida.</p>
+            <div class="segment">
+            <h2>Uppgift 1</h2>
+            <p>I den här rutan så visar vi lite information</p>
 
 <?php
 /* Uppgift 1 - Superglobal */
@@ -47,6 +49,7 @@ print("<p>Servern snurrar på port: " . $serverPort . "</p>");
 print("<p>Serverns Apache version är: " . $apacheVersion . "</p>");
 print("<p>Servern använder PHP version: " . $serverPHP . "</p>");
 
+echo("<h2>Uppgift 2</h2>");
 print("<p>Tid: " . date("h:i:sa") . "</p>");
 print("<p>Datum: " . date("d.m.Y") . "</p>");
 
@@ -60,12 +63,10 @@ print("<p>Vecko nummer: " . date("W") . "</p>");
 
 //print("<p>Cookie info : " . $_COOKIE[$cookie_value]);
 ?>
-
-        </article>
-        <article>
+</div>
 
         <!-- Uppgift 3 -->
-
+<div class="segment">
             <h2>Uppg 3</h2>
 
             <form action="index.php" method="get">
@@ -102,11 +103,9 @@ if (isset($_REQUEST['inDay']) && isset($_REQUEST['inMonth'])) {
     }
 }
 ?>
-        </article>
-        <article>
-
+</div>
 <!-- Uppgift 4 -->
-
+<div class="segment">
             <h2>Uppg 4</h2>
 
             <form action="index.php" method="get">
@@ -139,9 +138,8 @@ if (isset($_REQUEST['username']) && isset($_REQUEST['email'])) {
 }
 
 ?>
-
-            </article>
-            <article>
+</div>
+<div class="segment">
 
 <h2>Uppg 5 Cookie action:</h2>
 <!-- Cookie time! -->
@@ -157,8 +155,7 @@ if (!isset($_COOKIE['user'])) {
     print("<p>Hej " . $cookie_value . " senast du var här var: " . $cookie_date . " klockan " . $cookie_time . "</p>");
 }
 ?>
-
-        </article>
+</div>
         <article id="CIA">
         <br>
 
