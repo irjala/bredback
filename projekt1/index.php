@@ -49,7 +49,7 @@ print("<p>Servern snurrar på port: " . $serverPort . "</p>");
 print("<p>Serverns Apache version är: " . $apacheVersion . "</p>");
 print("<p>Servern använder PHP version: " . $serverPHP . "</p>");
 
-echo("<h2>Uppgift 2</h2>");
+echo ("<h2>Uppgift 2</h2>");
 print("<p>Tid: " . date("h:i:sa") . "</p>");
 print("<p>Datum: " . date("d.m.Y") . "</p>");
 
@@ -106,38 +106,15 @@ if (isset($_REQUEST['inDay']) && isset($_REQUEST['inMonth'])) {
 </div>
 <!-- Uppgift 4 -->
 <div class="segment">
-            <h2>Uppg 4</h2>
-
-            <form action="index.php" method="get">
-            <p>Användarnamn: <input type="text" name="username" /></p>
-            <p>E-mail: <input type="text" name="email" /></p>
-            <p><input type="submit" value="Registrera dig"/></p>
-            </form>
-            <?php // TO DO ----------- random passwordet som skickas till email skall också sparas, kanske länka till något annat.
-
-if (isset($_REQUEST['username']) && isset($_REQUEST['email'])) {
-    $username = test_input($_GET['username']);
-    $useremail = test_input($_GET['email']);
-
-    $alphas = array_merge(range('A', 'Z'), range('a', 'z'), range('0', '9'));
-    $password = $alphas[rand(0, 61)] . $alphas[rand(0, 61)] . $alphas[rand(0, 61)] . $alphas[rand(0, 61)] . $alphas[rand(0, 61)] . $alphas[rand(0, 61)] . $alphas[rand(0, 61)] . $alphas[rand(0, 61)] . $alphas[rand(0, 61)];
-    // SPARA LÖSENORDET
-    $userinfostorage = fopen("userlogin.txt", "a");
-    fwrite($userinfostorage, $username . $password . "\n");
-    fclose($userinfostorage);
-
-    $to_email = $useremail;
-    $subject = 'Registration confirmation';
-    $message = 'Your username is: ' . $username . ' and your password is: ' . $password;
-    $headers = 'From: noreply @ backendmaster . org';
-    mail($to_email, $subject, $message, $headers);
-
-    echo ("Tackar, vi har sänt dig ett email (kolla skräp post)");
+<?php
+if ($_SESSION['emailer'] == "sent") {
+    echo ("<h2>Uppgift 4 KLAR!");
+    echo ("<h3>Tackar, vi har sänt dig ett email (kolla skräp post)</h3>");
 } else {
-    echo ("Något gick snett :/");
+    include "emailer.php";
 }
-
 ?>
+
 </div>
 <div class="segment">
 
@@ -145,23 +122,24 @@ if (isset($_REQUEST['username']) && isset($_REQUEST['email'])) {
 <!-- Cookie time! -->
 
 <?php
-// TO DO ----------------- Cookie skall registrera ett första gången värde separat och behålla det, för tillfället överskrivs värdet. (isset)
-$cookie_name = "user";
-$cookie_value = $_SERVER['REMOTE_USER'];
-$cookie_date = date("d.m.Y");
-$cookie_time = date("G:i:s");
-setcookie($cookie_name, $cookie_value, $cookie_date, $cookie_time, time() + (86400 * 30), "/"); // 86400 = 1 day
 if (!isset($_COOKIE['user'])) {
+    $cookie_name = "user";
+    $cookie_value = $_SERVER['REMOTE_USER'];
+    $cookie_date = date("d.m.Y");
+    $cookie_time = date("G:i:s");
+    setcookie($cookie_name, $cookie_value, $cookie_date, $cookie_time, time() + (86400 * 30), "/"); // 86400 = 1 day
+    print("<p>Hej " . $_COOKIE[$cookie_name] . " du är här för första gången: " . $cookie_date . " klockan " . $cookie_time . "</p>");
+} else {
     print("<p>Hej " . $cookie_value . " senast du var här var: " . $cookie_date . " klockan " . $cookie_time . "</p>");
 }
 ?>
-</div>
-        <article id="CIA">
-        <br>
+    </div>
+    <div class="segment">
 
-<!-- Uppgift 6 -->
-<p>Om du vet så vet du...</p>
-<form action="index.php" method="get">
+        <h2>Uppgift 6</h2>
+
+        <!-- Uppgift 6 -->
+        <form action="index.php" method="get">
             <p>Login: <input type="text" name="login" /></p>
             <p>Password: <input type="text" name="password" /></p>
             <p><input type="submit" value="Logga in"/></p>
@@ -195,22 +173,21 @@ if ($login == "dennis" || $login == "Dennis") {
 }
 ?>
 
-        </article>
-        <article id="uploadfield">
-        <br>
+    </div>
+    <div class="segment">
 <!-- Uppgift 7 -->
         <h2>Vill du uploada något?</h2>
         <p>Lägg upp en bild! (jpeg, png, gif):</p>
 
         <form action="upload.php" method="post" enctype="multipart/form-data">
-  <input type="file" name="fileToUpload" id="fileToUpload">
-  <input type="submit" value="Upload Image" name="submit">
-</form>
-<br>
-</article>
+            <input type="file" name="fileToUpload" id="fileToUpload">
+            <input type="submit" value="Upload Image" name="submit">
+        </form>
+    <br>
+    </div>
 
-<article>
-<h2>Uppg 8</h2>
+    <div class="segment">
+        <h2>Uppg 8</h2>
 
 <?php
 
@@ -238,7 +215,7 @@ if (!$besoklog) {
 }
 ?>
 
-</article>
+</div>
 
 <!--
     HÄR SÅ HANN JAG INTE FIXA GÄSTBOKEN ! ! !

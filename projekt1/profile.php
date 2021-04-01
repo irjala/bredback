@@ -7,14 +7,15 @@ session_start();
 <body>
 
 <?php
-if ($_SESSION['access'] == "yesyoucan") {
-print("<p>Session content: </p>");
-print($_SESSION);
-print("<br>Användaren:" . $_SESSION['user']);
+if (isset($_SESSION['access'])){
+    if ($_SESSION['access'] == "yesyoucan") {
+    print("<p>Session content: </p>");
+    print($_SESSION);
+    print("<br>Användaren:" . $_SESSION['user']);
 
-// TODO: Visa en text endast om $_SESSION['user'] == "dennis"
+        // TODO: Visa en text endast om $_SESSION['user'] == "dennis"
 
-// TODO: Annars styr användaren till loginsidan (index.php)
+        // TODO: Annars styr användaren till loginsidan (index.php)
 }
 if ($_SESSION['access'] == "yesyoucandennis") {
     print($_SESSION);
@@ -22,6 +23,9 @@ if ($_SESSION['access'] == "yesyoucandennis") {
 }
 else {
     print("<a href='index.php'>index</a>");
+}
+} else {
+    print("You dont belong here!");
 }
 ?>
 
