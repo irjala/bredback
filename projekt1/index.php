@@ -179,11 +179,7 @@ if ($login == "dennis" || $login == "Dennis") {
         <h2>Vill du uploada något?</h2>
         <p>Lägg upp en bild! (jpeg, png, gif):</p>
 
-        <form action="upload.php" method="post" enctype="multipart/form-data">
-            <input type="file" name="fileToUpload" id="fileToUpload">
-            <input type="submit" value="Upload Image" name="submit">
-        </form>
-    <br>
+    <?php include "upload.php"; ?>
     </div>
 
     <div class="segment">
