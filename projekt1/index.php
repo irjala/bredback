@@ -195,23 +195,28 @@ if ($login == "dennis" || $login == "Dennis") {
 
 $besoklog = fopen("besok.log", "a+");
 if (!$besoklog) {
+    // Om PHP inte får rättigheter att öppna+skriva filen
     echo ("<p>Accounting problems!</p>");
 } else {
+    // All information vi vill lägga i besöks loggen
     fwrite($besoklog, "VIS" . $userIP . " " . $userDude . " " . date("Y-m-d H:i:s") . "\n");
     fclose($besoklog);
 
+    // Räknar raderna i besöks loggen
     $lines = 0;
     $counteraccess = fopen("besok.log", "r");
     while (!feof($counteraccess)) {
         $line = fgets($counteraccess);
         $lines++;
     }
-    $numberwriter = fopen("nummer.txt", "w");
-    fwrite($numberwriter, $lines);
-    fclose($numberwrite);
 
+    // Meddelar site visitor vilken besökar nummer han är
     echo ("<h2>Du är besökare nummer: " . $lines . "</p>");
     fclose($counteraccess);
+
+    
+
+fclose($handle);
 }
 ?>
 

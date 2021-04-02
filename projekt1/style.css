@@ -12,14 +12,16 @@ html, body {
     margin: auto;               /* Centrerar innehåll */
 }
 .segment {
-    margin-left:38px;
+    margin-left:35px;
     margin-bottom: 10px;
     padding-left: 15px;
     max-width:700px;
     height: auto;
-    border-radius: 3px;
+    border-radius: 10px;
+    border: 4px;
     border-color: #1abc9c;
-    border-style: solid;
+    border-style:ridge;
+    border-bottom-right-radius: 50px;
 }
 article {
     padding: 0px 15px;          /* Skuffar in artikeln från vänster (och höger) kant */
@@ -37,4 +39,10 @@ nav a {                             /* multiple selectors */
 }
 nav a:hover {
     background-color: #00AA89;    /* Byter bakgrund on hover "pseudoklass" */ 
+}
+@media (max-width: 768px) {
+    .segment{
+        margin-left:5px;
+        margin-right:5px;
+    }
 }
