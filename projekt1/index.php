@@ -142,6 +142,13 @@ if ($login == "dennis" || $login == "Dennis") {
 
     </div>
     <div class="segment">
+<!-- Uppgift 6 igen -->
+        <h2>Här under kommer text</h2>
+        <p>Från sessionproof.php<br>Försök att se informationen genom att gå rakt till den sidan bara.</p>
+
+    <?php include "sessionproof.php"; ?>
+    </div>
+    <div class="segment">
 <!-- Uppgift 7 -->
         <h2>Vill du uploada något?</h2>
         <p>Lägg upp en bild! (jpeg, png, gif):</p>
