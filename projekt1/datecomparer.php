@@ -12,7 +12,30 @@ if (isset($_REQUEST['inDay']) && isset($_REQUEST['inMonth'])) {
     $manad = test_input($_GET["inMonth"]);
     $artal = test_input($_GET["inYear"]);
 
-    if($dag >= 1 && $dag < 32 && $manad >= 1 && $manad < 13 && $artal >= 0){
+
+    if ($artal % 400 == 0) {
+        $check1 = 1;
+    } else if ($artal % 100 == 0) {
+        $check1 = 0;
+    } else if ($artal % 4 == 0) {
+        $check1 = 1;
+    } else {
+        $check1 = 0;
+    }
+
+
+    $monthdaysly = array(31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
+    $monthdays = array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
+
+    if($check1 == 1){
+        $maxdays = $monthdaysly[$manad-1];
+    } else if($check1 == 0){
+        $maxdays = $monthdays[$manad-1];
+    } else {
+        echo("ERROR");
+    }
+
+    if($dag >= 1 && $dag <= $maxdays && $manad >= 1 && $manad < 13 && $artal >= 0){
 
     $userinputdate = mktime(0, 0, 0, $manad, $dag, $artal);
     print("<h3>Du valde datumet: " . gmdate("d.m.Y", $userinputdate) . "</h3>");
