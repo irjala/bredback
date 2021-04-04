@@ -11,7 +11,7 @@ Detta var bra repetition om web baserad tid och datum hantering. Att sedan skriv
 Formuläret var svåraste av första tre uppgifterna. Skulle det endast varit dagar så tror jag det inte varit lika problematiskt, men tiden gjorde det lite av en "curveball" och i tidigare versioner av formuläret så orsakade det felaktiga svar. Formuläret kräver ett giltigt datum och man kan endast fylla dagar som existerar. Man kan köra formuläret med 29 dagar i februari på skottår men inte normala år.
 
 ### Uppgift 4
-Uppgiften gjordes lätt när det finns enkla och tydliga tutorials på nätet. Slumpmässigt lösenord skapas genom att en array på alfabetets karaktärer och nummer symboler blir dragna och placerade nio gånger på raken.
+Uppgiften gjordes lätt när det finns enkla och tydliga tutorials på nätet. Slumpmässigt lösenord skapas genom att en array på alfabetets karaktärer och nummer symboler blir valda och tillskrivna nio gånger på raken.
 
 ### Uppgift 5
 

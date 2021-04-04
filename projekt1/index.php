@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Back-end Jonas style</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -21,7 +23,7 @@
 
         <!-- Artikel för H1 titel OCH min testing area för att snabbare se olika koder -->
 
-            <h1>Projekt 1</h1>
+            <h1 id="title">Projekt 1</h1>
             <div class="segment">
             <h2>Uppgift 1</h2>
             <p>I den här rutan så visar vi lite information</p>
@@ -40,26 +42,26 @@ $serverPort = $_SERVER['SERVER_PORT'];
 $apacheVersion = $_SERVER['SERVER_SOFTWARE'];
 $serverPHP = phpversion();
 
-print("<p>Ditt username är: " . $userDude . "</p>");
-print("<p>Din IP adress är: " . $userIP . "</p>");
-print("<p>Server IP adressen du hämtar sidan från är: " . $serverIP . "</p>");
+print("<p>Ditt username är: <b>" . $userDude . "</b></p>");
+print("<p>Din IP adress är: <b>" . $userIP . "</b></p>");
+print("<p>Server IP adressen du hämtar sidan från är: <b>" . $serverIP . "</b></p>");
 
-print("<p>Servern har namnet: " . $serverName . "</p>");
+print("<p>Servern har namnet: <b>" . $serverName . "</b></p>");
 print("<p>Servern snurrar på port: " . $serverPort . "</p>");
 print("<p>Serverns Apache version är: " . $apacheVersion . "</p>");
 print("<p>Servern använder PHP version: " . $serverPHP . "</p>");
 
 echo ("<h2>Uppgift 2</h2>");
 print("<p>Tid: " . date("h:i:sa") . "</p>");
-print("<p>Datum: " . date("d.m.Y") . "</p>");
+print("<p>Datum: <b>" . date("d.m.Y") . "</b></p>");
 
 // $manad är en sträng och inte nummer!
 // Type cast str till int
 $manadInt = (int) $manad;
 $dagNamn = date("l");
-print("<p>Idag är det: " . swedishdays($dagNamn) . "</p>");
-print("<p>Månad: " . $sweMonths[$manadInt - 1]);
-print("<p>Vecko nummer: " . date("W") . "</p>");
+print("<p>Idag är det: <b>" . swedishdays($dagNamn) . "</b></p>");
+print("<p>Månad: <b>" . $sweMonths[$manadInt - 1])."</b></p>";
+print("<p>Vecko nummer: <b>" . date("W") . "</b></p>");
 
 //print("<p>Cookie info : " . $_COOKIE[$cookie_value]);
 ?>
@@ -74,7 +76,7 @@ print("<p>Vecko nummer: " . date("W") . "</p>");
 <!-- Uppgift 4 -->
 <div class="segment">
 <?php
-if ($_SESSION['emailer'] == "sent") {
+if (isset($_SESSION['emailer']) && $_SESSION['emailer'] == "sent") {
     echo ("<h2>Uppgift 4 KLAR!");
     echo ("<h3>Tackar, vi har sänt dig ett email (kolla skräp post)</h3>");
 } else {
@@ -122,7 +124,7 @@ $checkstring = ($login . $password);
 $USERgetlog = fopen("userlogin.txt", "r");
 $USERchecklog = fread($USERgetlog, filesize($filename));
 
-if (strpos(file_get_contents($USERgetlog), $_GET[$checkstring]) !== false) {
+if (strpos(file_get_contents($USERgetlog), $_REQUEST[$checkstring]) !== false) {
     print("<h3>Its there!</h3>");
 } else {
     print("<h3>Me no find!!!</h3>");
@@ -193,10 +195,8 @@ fclose($handle);
 ?>
 
 </div>
+<div class="segment">
 
-<!--
-    HÄR SÅ HANN JAG INTE FIXA GÄSTBOKEN ! ! !
-    <article>
 <h2>Gästbok</h2>
 <form action="addcomment.php" method="post" name="guest">
 Name:<input type="text" name="name" /><br>
@@ -205,11 +205,11 @@ Message: <br><textarea cols="50" name="message" rows="10"> </textarea><br>
 <input type="submit" value="Sign this in the Book" /></form><br> -->
 
 <?php
-// Gästbok
+// Gästbok/*
 /*
-$guestname = test_input($_GET('guest'));
-$gemail = test_input($_GET('gemail'));
-$gmessage = test_input($_GET('message'));
+$guestname = test_input($_REQUEST('name'));
+$gemail = test_input($_REQUEST('gemail'));
+$gmessage = test_input($_REQUEST('message'));
 
 $guestbook = fopen("guestbook.txt", "rw+");
 if (!$guestbook) {
@@ -225,7 +225,7 @@ fclose($guestbook);
 <br>
 <br>
 -->
-
+</div>
 <article>
         <br>
 

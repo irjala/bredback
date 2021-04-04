@@ -3,7 +3,10 @@ html, body {
     margin: 0;                   /* tar bort inbyggda marginaler */ 
     height: 100%;                /* Krävs av container eftersom dessa är föräldrarna */
     background-color: #3D3D3D;    
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', sans-serif, arial;
+}
+#title{
+    padding-left: 37px;
 }
 #container {                     /* # för id . för klass */
     background-color: #FFF;
@@ -12,7 +15,7 @@ html, body {
     margin: auto;               /* Centrerar innehåll */
 }
 .segment {
-    background-color:#8afce596;
+    background-image: linear-gradient(to left, #b3d1bc, rgb(245, 253, 248));
     margin-left:35px;
     margin-bottom: 10px;
     padding-left: 15px;
