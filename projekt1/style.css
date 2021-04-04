@@ -12,6 +12,7 @@ html, body {
     margin: auto;               /* Centrerar innehåll */
 }
 .segment {
+    background-color:#8afce596;
     margin-left:35px;
     margin-bottom: 10px;
     padding-left: 15px;

@@ -12,14 +12,10 @@ if (isset($_SESSION['access'])){
     print("<p>Session content: </p>");
     print($_SESSION);
     print("<br>Användaren:" . $_SESSION['user']);
-
-        // TODO: Visa en text endast om $_SESSION['user'] == "dennis"
-
-        // TODO: Annars styr användaren till loginsidan (index.php)
 }
 if ($_SESSION['access'] == "yesyoucandennis") {
     print($_SESSION);
-    print("<br>Bra jobbat Dennis, du stavade ditt namn rätt.");
+    print("<br>Bra jobbat Dennis, du stavade ditt namn rätt. By the way, denna text är endast tillgänglig ifall man loggat in med namnet Dennis");
 }
 else {
     print("<a href='index.php'>index</a>");

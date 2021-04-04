@@ -113,7 +113,8 @@ if (!isset($_COOKIE['user'])) {
             </form>
 
 
-<?php // TO DO --------- MERA SESSIONS!!!
+<?php
+
 $login = test_input($_GET["login"]);
 $password = test_input($_GET["password"]);
 
@@ -138,6 +139,7 @@ if ($login == "dennis" || $login == "Dennis") {
 } else {
     print("<p>Saker å ting är som de ska vara!</p><br>");
 }
+
 ?>
 
     </div>
