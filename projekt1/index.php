@@ -168,7 +168,7 @@ if ($login == "dennis" || $login == "Dennis") {
     <!-- Uppgift 7 -->
     <div class="segment">
 
-        <h2>Vill du uploada något?</h2>
+        <h2>Uppgift 7 - Upload</h2>
         <p>Lägg upp en bild! (jpeg, png, gif):</p>
 
     <?php include "upload.php"; ?>
@@ -197,13 +197,13 @@ if (!$besoklog) {
         $line = fgets($counteraccess);
         $lines++;
     }
+    // EN RAD I LOGGEN ÄR TOM!!!
     $lines--;
     // Meddelar site visitor vilken besökar nummer han är
     echo ("<h2>Du är besökare nummer: " . $lines . "</p>");
     fclose($counteraccess);
 
     $searchname = $_SESSION['uscount'];
-    echo ("<h3>".$searchname."</h3>");
 
     $searchstring = file_get_contents(__DIR__."/besok.log");
     $omalines = substr_count($searchstring, $searchname);
@@ -258,13 +258,55 @@ while (!$myFile->eof()) {
     <!-- Uppgift 10 -->
     <div class="segment">
 
+        <form action="index.php" method="post">
+            <p>Feedback här eller skilld sida?</p>
+            <label>
+        <input type="radio" name="feedback" value="here">Här tack!
+            </label>
+            <label>
+        <input type="radio" name="feedback" value="there">Länk tack!
+            </label>
+                <br><br>
+        <input type="submit" name="submit_form" value="Submit">
+        </form>
 <?php
 
-include('parsedown.php');
-$contents = file_get_contents('raport.md');
-$Parsedown = new Parsedown();
-echo $Parsedown->text($contents);
+if(isset($_POST['submit_form'])){
 
+    $fbhere = false;
+    $fbthere = false;
+
+    if(isset($_POST['feedback'])){
+        
+        $fbchoices = array('here', 'there');
+        $fbchosen = $_REQUEST['feedback'];
+
+        if(in_array($fbchosen, $fbchoices)){
+
+            if(strcasecmp($fbchosen, 'here') == 0){
+
+                $fbhere = true;
+            }
+            if(strcasecmp($fbchosen, 'there') == 0){
+
+                $fbthere = true;
+            }
+        }
+    }
+
+    //If the user agreed
+    if($fbhere){
+        include "disprep.php";
+        header("Refresh:0");
+    }
+    if($fbthere){
+        echo("<a href='./feedback.php'>Feedback page</a>");
+    }
+
+}
+
+
+    
 ?>
 
     </div>

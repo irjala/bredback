@@ -23,7 +23,10 @@ Jag gillar väldigt mycket att bygga och leka med PHP-Sessions. Kanske fusk att 
 ### Uppgift 7
 
 ### Uppgift 8
-Denna uppgift är väldigt simpel om man delar den på tre. Samla information du vill spara i variabler, skriv de sedan till en rad i en fil och till sist, läs antalet rader. Inte särskillt komplicerat. Men för extrema poängen på slutet med specifika besökare så krävs det lite extra effort. Spara user till session, läs igenom raderna i loggen och jämför med strängen sparat till session... voila du har hur många gånger denna besökare laddat sidan.
+Denna uppgift är väldigt simpel om man delar den på tre. Samla information du vill spara i variabler, skriv de sedan till en rad i en fil och till sist, läs antalet rader. OBS eftersom jag skriver in ny rad i slutet på varje input så kommer radräknaren ha en visitor för mycket. Så innan siffran skrivs ut tar vi bort en för att inte bli anklagade för fake news. För extrema poängen på slutet med specifika besökare så krävs det lite extra effort.
+#### Besökarens nr
+Hade faktiskt en del problem med hur man skulle räkna current user på ett smidigt sätt. Problemena var att inte bara räkna ett resultat, att inte bara få ett true statement att stringen finns i texten, att få hela documentet i en string.
+Slutliga lösningen kanske inte är det som gör dig mest glad att se men den funkar och är kort i kod.
 
 ### Uppgift 9
 En av de krångligaste uppgifterna att få finslipat. Ganska många försök tills det blev någorlunda rätt.
@@ -32,5 +35,8 @@ En av de krångligaste uppgifterna att få finslipat. Ganska många försök til
 #### Ny stil på mina rapporter.
 Jag ville ändra på hur jag skriver rapporter. Ganska klumpigt att i VScode skriva h2 och p slut taggar och manuella br.
 Jag tyckte parsedown är praktiskt men om du tycker det är fuskigt så får du säga i feedbacken.
+Kollade förstås rättigheterna för koden som används för att parsea readme format och det var fullt öppet och lagligt att använda nu och för all framtid i alla sammanhang.
+#### Och med ett lättare format...
+...så blir det roligare att göra rapporter om projekt. Det känns ibland som ett hinder att fundera ut formatering för projekt när det brinner i knutarna från många andra svåra bitar av olika projekt.
 
 ## NEXT TIME -> Projekt 2
