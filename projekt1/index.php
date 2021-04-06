@@ -43,6 +43,8 @@ $serverPort = $_SERVER['SERVER_PORT'];
 $apacheVersion = $_SERVER['SERVER_SOFTWARE'];
 $serverPHP = phpversion();
 
+$_SESSION['uscount'] = $userDude;
+
 print("<p>Ditt username är: <b>" . $userDude . "</b></p>");
 print("<p>Din IP adress är: <b>" . $userIP . "</b></p>");
 print("<p>Server IP adressen du hämtar sidan från är: <b>" . $serverIP . "</b></p>");
@@ -195,11 +197,17 @@ if (!$besoklog) {
         $line = fgets($counteraccess);
         $lines++;
     }
-
+    $lines--;
     // Meddelar site visitor vilken besökar nummer han är
     echo ("<h2>Du är besökare nummer: " . $lines . "</p>");
     fclose($counteraccess);
 
+    $searchname = $_SESSION['uscount'];
+    echo ("<h3>".$searchname."</h3>");
+
+    $searchstring = file_get_contents(__DIR__."/besok.log");
+    $omalines = substr_count($searchstring, $searchname);
+    echo ("<h2>Och du har besökt sidan: " . $omalines . " gånger</p>");
 }
 ?>
 
