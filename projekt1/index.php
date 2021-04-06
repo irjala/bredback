@@ -18,15 +18,16 @@
 
 <body>
     <!-- Containern har max bredd 800px -->
-    <div id="container">
-      <?php include "navbar.php"?>
+<div id="container">
+    <?php include "navbar.php"?>
 
-        <!-- Artikel för H1 titel OCH min testing area för att snabbare se olika koder -->
+    <!-- Artikel för H1 titel OCH min testing area för att snabbare se olika koder -->
 
-            <h1 id="title">Projekt 1</h1>
-            <div class="segment">
-            <h2>Uppgift 1</h2>
-            <p>I den här rutan så visar vi lite information</p>
+    <h1 id="title">Projekt 1</h1>
+
+    <div class="segment">
+        <h2>Uppgift 1</h2>
+        <p>I den här rutan så visar vi lite information</p>
 
 <?php
 /* Uppgift 1 - Superglobal */
@@ -65,16 +66,19 @@ print("<p>Vecko nummer: <b>" . date("W") . "</b></p>");
 
 //print("<p>Cookie info : " . $_COOKIE[$cookie_value]);
 ?>
-</div>
+    </div>
 
-        <!-- Uppgift 3 -->
-<div class="segment">
-            <h2>Uppg 3</h2>
+    <!-- Uppgift 3 -->
+    <div class="segment">
 
-            <?php include "datecomparer.php"; ?>
-</div>
-<!-- Uppgift 4 -->
-<div class="segment">
+        <h2>Uppg 3</h2>
+        <?php include "datecomparer.php"; ?>
+
+    </div>
+
+    <!-- Uppgift 4 -->
+    <div class="segment">
+
 <?php
 if (isset($_SESSION['emailer']) && $_SESSION['emailer'] == "sent") {
     echo ("<h2>Uppgift 4 KLAR!");
@@ -83,12 +87,12 @@ if (isset($_SESSION['emailer']) && $_SESSION['emailer'] == "sent") {
     include "emailer.php";
 }
 ?>
+    </div>
 
-</div>
-<div class="segment">
+    <!-- Uppgift 5 -->
+    <div class="segment">
 
-<h2>Uppg 5 Cookie action:</h2>
-<!-- Cookie time! -->
+        <h2>Uppg 5 Cookie action:</h2>
 
 <?php
 if (!isset($_COOKIE['user'])) {
@@ -114,7 +118,7 @@ if (!isset($_COOKIE['user'])) {
             <p>Login: <input type="text" name="login" /></p>
             <p>Password: <input type="text" name="password" /></p>
             <p><input type="submit" value="Logga in"/></p>
-            </form>
+        </form>
 
 
 <?php
@@ -148,28 +152,33 @@ if ($login == "dennis" || $login == "Dennis") {
 ?>
 
     </div>
+
+    <!-- Uppgift 6 extra poäng -->
     <div class="segment">
-<!-- Uppgift 6 igen -->
+
         <h2>Här under kommer text</h2>
         <p>Från sessionproof.php<br>Försök att se informationen genom att gå rakt till den sidan bara.</p>
 
     <?php include "sessionproof.php"; ?>
+
     </div>
+
+    <!-- Uppgift 7 -->
     <div class="segment">
-<!-- Uppgift 7 -->
+
         <h2>Vill du uploada något?</h2>
         <p>Lägg upp en bild! (jpeg, png, gif):</p>
 
     <?php include "upload.php"; ?>
     </div>
 
+    <!-- Uppgift 8 -->
     <div class="segment">
-        <h2>Uppg 8</h2>
+    <h2>Uppg 8</h2>
 
 <?php
 
 // VISITOR LOG som också ränkar hur många besökare varit på sidan
-
 $besoklog = fopen("besok.log", "a+");
 if (!$besoklog) {
     // Om PHP inte får rättigheter att öppna+skriva filen
@@ -194,15 +203,18 @@ if (!$besoklog) {
 }
 ?>
 
-</div>
-<div class="segment">
+    </div>
 
-<h2>Gästbok</h2>
-<form action="index.php" method="post" name="guest">
-Name:<input type="text" name="gname" /><br>
-Email: <input type="text" name="gemail" /><br>
-Message: <br><textarea cols="50" name="gmessage" rows="10"> </textarea><br>
-<input type="submit" value="Sign this in the Book" name="gsubmit"/></form><br> -->
+    <!-- Uppgift 9 -->
+    <div class="segment">
+
+        <h2>Gästbok</h2>
+            <form action="index.php" method="post" name="guest">
+                Name:<input type="text" name="gname" /><br>
+                Email: <input type="text" name="gemail" /><br><br>
+                Message: <br><textarea cols="50" name="gmessage" rows="10"> </textarea><br>
+                <input type="submit" value="Sign this in the Book" name="gsubmit"/>
+            </form><br>
 
 <?php
 if(isset($_REQUEST['gsubmit']) && isset($_REQUEST['gname']) && isset($_REQUEST['gmessage']) && isset($_REQUEST['gemail'])){ 
@@ -230,21 +242,13 @@ $myFile = new SplFileObject("guestbook.txt");
 while (!$myFile->eof()) {
     echo $myFile->fgets() . PHP_EOL;
     echo "<br>";
-}/*
-$bookprint = fopen("guestbook.txt", "r");
-echo "<p>";
-echo fread($bookprint, filesize("guestbook.txt"));
-echo "</p>";
-fclose($bookprint); */
+}
 ?>
-<!--
-</article>
-<br>
-<br>
--->
-</div>
-<div class="segment">
 
+    </div>
+
+    <!-- Uppgift 10 -->
+    <div class="segment">
 
 <?php
 
@@ -255,9 +259,9 @@ echo $Parsedown->text($contents);
 
 ?>
 
-</div>
-
     </div>
+
+</div>
 </body>
 
 <!-- Script kan köras efter att sidan laddats in -->
