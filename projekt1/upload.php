@@ -1,4 +1,4 @@
-<form action="" method="POST" enctype="multipart/form-data">
+<form action="upload.php" method="POST" enctype="multipart/form-data">
   <input type="file" name="fileToUpload" id="fileToUpload">
   <input type="submit" value="Upload Image" name="submitupload">
 </form>
@@ -22,8 +22,6 @@ if(isset($_POST["submitupload"])) {
     echo ("File is not an image.");
     $uploadOk = 0;
   }
-
-
 
 // Check if file already exists
 if (file_exists($target_file)) {

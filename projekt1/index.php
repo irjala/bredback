@@ -122,6 +122,7 @@ if (!isset($_COOKIE['user'])) {
 $login = test_input($_GET["login"]);
 $password = test_input($_GET["password"]);
 
+/*
 $checkstring = ($login . $password);
 $USERgetlog = fopen("userlogin.txt", "r");
 $USERchecklog = fread($USERgetlog, filesize($filename));
@@ -131,7 +132,7 @@ if (strpos(file_get_contents($USERgetlog), $_REQUEST[$checkstring]) !== false) {
 } else {
     print("<h3>Me no find!!!</h3>");
 }
-fclose($USERgetlog);
+fclose($USERgetlog); */
 
 if ($login == "bollkalle" && $password == "plockaboll") {
     $_SESSION['access'] = "yesyoucan";
@@ -190,9 +191,6 @@ if (!$besoklog) {
     echo ("<h2>Du är besökare nummer: " . $lines . "</p>");
     fclose($counteraccess);
 
-    
-
-fclose($handle);
 }
 ?>
 
@@ -200,27 +198,42 @@ fclose($handle);
 <div class="segment">
 
 <h2>Gästbok</h2>
-<form action="addcomment.php" method="post" name="guest">
-Name:<input type="text" name="name" /><br>
+<form action="index.php" method="post" name="guest">
+Name:<input type="text" name="gname" /><br>
 Email: <input type="text" name="gemail" /><br>
-Message: <br><textarea cols="50" name="message" rows="10"> </textarea><br>
-<input type="submit" value="Sign this in the Book" /></form><br> -->
+Message: <br><textarea cols="50" name="gmessage" rows="10"> </textarea><br>
+<input type="submit" value="Sign this in the Book" name="gsubmit"/></form><br> -->
 
 <?php
-// Gästbok/*
-/*
-$guestname = test_input($_REQUEST('name'));
-$gemail = test_input($_REQUEST('gemail'));
-$gmessage = test_input($_REQUEST('message'));
+if(isset($_REQUEST['gsubmit'])){ //&& isset($_REQUEST['gname']) && isset($_REQUEST['gmessage']) && isset($_REQUEST['gemail'])
+
+$gname = test_input($_REQUEST['gname']);
+$gmail = test_input($_REQUEST['gemail']);
+$gmessage = test_input($_REQUEST['gmessage']);
 
 $guestbook = fopen("guestbook.txt", "rw+");
-if (!$guestbook) {
-echo ("<p>Book is not here...</p>");
-} else {
-fwrite($guestbook, $guestname ."\n" .$gemail ."\n" .$gmessage ."\n\n");
-fread($guestbook, filesize('guestbook.txt'));
-fclose($guestbook);
-} */
+    if (!$guestbook) {
+        echo ("<p>Book is not here...</p>");
+    } else {
+        $logtime = time();
+        $logtstring = date("Y-m-d",$logtime);
+        $logbefore = file_get_contents("guestbook.txt");
+
+        fwrite($guestbook, $gname . " - " . $gmail ."\n" . $logtstring . "\n\n" .$gmessage ."\n\n" .$logbefore); // .$gemail ."\n" .$gmessage ."\n\n"
+        fclose($guestbook);
+    }   
+}
+$myFile = new SplFileObject("guestbook.txt");
+
+while (!$myFile->eof()) {
+    echo $myFile->fgets() . PHP_EOL;
+    echo "<br>";
+}/*
+$bookprint = fopen("guestbook.txt", "r");
+echo "<p>";
+echo fread($bookprint, filesize("guestbook.txt"));
+echo "</p>";
+fclose($bookprint); */
 ?>
 <!--
 </article>
