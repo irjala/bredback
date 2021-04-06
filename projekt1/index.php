@@ -93,13 +93,15 @@ if (isset($_SESSION['emailer']) && $_SESSION['emailer'] == "sent") {
 <?php
 if (!isset($_COOKIE['user'])) {
     $cookie_name = "user";
-    $cookie_value = $_SERVER['REMOTE_USER'];
     $cookie_date = date("d.m.Y");
     $cookie_time = date("G:i:s");
-    setcookie($cookie_name, $cookie_value, $cookie_date, $cookie_time, time() + (86400 * 30), "/"); // 86400 = 1 day
+    $cookie_value = $_SERVER['REMOTE_USER'] .";".$cookie_date.";".$cookie_time;
+    
+    setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
     print("<p>Hej " . $_COOKIE[$cookie_name] . " du är här för första gången: " . $cookie_date . " klockan " . $cookie_time . "</p>");
 } else {
-    print("<p>Hej " . $cookie_value . " senast du var här var: " . $cookie_date . " klockan " . $cookie_time . "</p>");
+    $cookie_array = explode( ";" , $_COOKIE['user']);
+    print("<p>Hej " . $cookie_array[0] . " första gången du var här var: " . $cookie_array[1] . " " . $cookie_array[2] . "</p>");
 }
 ?>
     </div>
@@ -226,32 +228,20 @@ fclose($guestbook);
 <br>
 -->
 </div>
-<article>
-        <br>
+<div class="segment">
 
-<!-- Feedback -->
-<p>Feedback (+ mera sessions på samma gång)</p>
-<form action="index.php" method="get">
-            <p>Hej dennis, om du skriver mitt namn så får du min feedback: <input type="text" name="feedkey" /></p>
-            <p><input type="submit" value="Hit me feedback krångelboll!"/></p>
-            </form>
 
-<?php // TO DO --------- MERA SESSIONS!!!
-$feedkey = test_input($_GET["feedkey"]);
+<?php
 
-if ($feedkey == "Jonas" || $feedkey == "jonas" || $feedkey == "Jonas Irjala" || $feedkey == "jonas irjala") {
-    $_SESSION['feedbackkey'] = "match";
-    print("<a href='feedback.php'>Feedbacken</a>");
-} else {
-    print("<p>Hmmmm</p><br>");
-}
+include('parsedown.php');
+$contents = file_get_contents('raport.md');
+$Parsedown = new Parsedown();
+echo $Parsedown->text($contents);
+
 ?>
 
-        </article>
+</div>
 
-        <br>
-        <br>
-        <br>
     </div>
 </body>
 
