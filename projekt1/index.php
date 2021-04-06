@@ -205,7 +205,7 @@ Message: <br><textarea cols="50" name="gmessage" rows="10"> </textarea><br>
 <input type="submit" value="Sign this in the Book" name="gsubmit"/></form><br> -->
 
 <?php
-if(isset($_REQUEST['gsubmit'])){ //&& isset($_REQUEST['gname']) && isset($_REQUEST['gmessage']) && isset($_REQUEST['gemail'])
+if(isset($_REQUEST['gsubmit']) && isset($_REQUEST['gname']) && isset($_REQUEST['gmessage']) && isset($_REQUEST['gemail'])){ 
 
 $gname = test_input($_REQUEST['gname']);
 $gmail = test_input($_REQUEST['gemail']);
@@ -214,14 +214,16 @@ $gmessage = test_input($_REQUEST['gmessage']);
 $guestbook = fopen("guestbook.txt", "rw+");
     if (!$guestbook) {
         echo ("<p>Book is not here...</p>");
-    } else {
+    } else if ($gmessage != ""){
         $logtime = time();
         $logtstring = date("Y-m-d",$logtime);
         $logbefore = file_get_contents("guestbook.txt");
 
         fwrite($guestbook, $gname . " - " . $gmail ."\n" . $logtstring . "\n\n" .$gmessage ."\n\n" .$logbefore); // .$gemail ."\n" .$gmessage ."\n\n"
         fclose($guestbook);
-    }   
+    } else { echo "No empty messages"; }
+} else {
+    echo "<p>Skriv ett meddelande och tryck skicka!</p>";
 }
 $myFile = new SplFileObject("guestbook.txt");
 
