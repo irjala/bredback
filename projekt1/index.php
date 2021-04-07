@@ -287,10 +287,12 @@ if(isset($_POST['submit_form'])){
             if(strcasecmp($fbchosen, 'here') == 0){
 
                 $fbhere = true;
-            }
-            if(strcasecmp($fbchosen, 'there') == 0){
+            } else if(strcasecmp($fbchosen, 'there') == 0){
 
                 $fbthere = true;
+            } else {
+                $fbhere = false;
+                $fbthere = false;
             }
         }
     }
