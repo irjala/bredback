@@ -30,6 +30,10 @@ html, body {
 article {
     padding: 0px 15px;          /* Skuffar in artikeln från vänster (och höger) kant */
 }
+.imagediv {
+    width:400px;
+    height:auto;
+}
 /* Huvudmenyn */
 nav {
     background-color: #1abc9c;
