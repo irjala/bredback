@@ -7,7 +7,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Back-end Jonas style</title>
+    <link rel="icon" href="Favicon.ico" type="image/png" />
+    <title>Back-end kurs PROJEKTFILER</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
@@ -243,7 +244,7 @@ $guestbook = fopen("guestbook.txt", "rw+");
         fclose($guestbook);
     } else { echo "No empty messages"; }
 } else {
-    echo "<p>Skriv ett meddelande och tryck skicka!</p>";
+    echo "<h3>Skriv ett meddelande och tryck skicka!</h3>";
 }
 $myFile = new SplFileObject("guestbook.txt");
 
@@ -313,8 +314,5 @@ if(isset($_POST['submit_form'])){
 
 </div>
 </body>
-
-<!-- Script kan köras efter att sidan laddats in -->
-<script src="script.js"></script>
 
 </html>

@@ -11,8 +11,9 @@
 </head>
 <body>
 <div id="container">
+    
       <?php include "navbar.php"?>
-
+      <div class="segment">
 <?php
 include('parsedown.php');
 $contents = file_get_contents('raport.md');
@@ -20,6 +21,7 @@ $Parsedown = new Parsedown();
 echo $Parsedown->text($contents);
 
 ?>
-
+    </div>
+    </div>
 </body>
 </html>
