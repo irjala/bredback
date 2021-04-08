@@ -80,7 +80,7 @@ if (file_exists($dir) == false) {
         $file_type = strtolower(end(explode('.', $file)));
 
         if ($file !== '.' && $file !== '..' && in_array($file_type, $file_display) == true) {
-            echo '<img src="'. $dir. '/', $file. '" alt="'. $file. '" />';
+            echo '<img src="'. $dir. '/', $file. '"width="150px" alt="'. $file. '" />';
         }
     }
 }
