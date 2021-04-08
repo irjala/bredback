@@ -120,14 +120,26 @@ if (!isset($_COOKIE['user'])) {
         <form action="index.php" method="get">
             <p>Login: <input type="text" name="login" /></p>
             <p>Password: <input type="text" name="password" /></p>
-            <p><input type="submit" value="Logga in"/></p>
+            <p><input type="submit" value="Logga in" name="submitLogin"/></p>
         </form>
 
 
 <?php
-
+if(isset($_REQUEST['submitLogin'])) {
 $login = test_input($_GET["login"]);
 $password = test_input($_GET["password"]);
+
+    if ($login == "bollkalle" && $password == "plockaboll") {
+        $_SESSION['access'] = "yesyoucan";
+        print("<a href='profile.php'>Din privata profilsida</a>");
+    }
+    if ($login == "dennis" || $login == "Dennis") {
+        $_SESSION['access'] = "yesyoucandennis";
+        print("<a href='profile.php'>Till DENNIS profilsida</a>");
+    } 
+} else {
+    print("<p>Saker å ting är som de ska vara!</p><br>");
+}
 
 /*
 $checkstring = ($login . $password);
@@ -141,16 +153,7 @@ if (strpos(file_get_contents($USERgetlog), $_REQUEST[$checkstring]) !== false) {
 }
 fclose($USERgetlog); */
 
-if ($login == "bollkalle" && $password == "plockaboll") {
-    $_SESSION['access'] = "yesyoucan";
-    print("<a href='profile.php'>Din privata profilsida</a>");
-}
-if ($login == "dennis" || $login == "Dennis") {
-    $_SESSION['access'] = "yesyoucandennis";
-    print("<a href='profile.php'>Till DENNIS profilsida</a>");
-} else {
-    print("<p>Saker å ting är som de ska vara!</p><br>");
-}
+
 
 ?>
 
@@ -226,27 +229,33 @@ if (!$besoklog) {
             </form><br>
 
 <?php
-if(isset($_REQUEST['gsubmit']) && isset($_REQUEST['gname']) && isset($_REQUEST['gmessage']) && isset($_REQUEST['gemail'])){ 
+if(isset($_REQUEST['gsubmit'])){ 
 
 $gname = test_input($_REQUEST['gname']);
 $gmail = test_input($_REQUEST['gemail']);
 $gmessage = test_input($_REQUEST['gmessage']);
 
-$guestbook = fopen("guestbook.txt", "rw+");
+    if(empty($gname) || empty($gmail) || empty($gmessage)){
+        echo ("No empty messages"); 
+    } else {
+        $guestbook = fopen("guestbook.log", "rw+");
     if (!$guestbook) {
-        echo ("<p>Book is not here...</p>");
+        echo ("<p>Book file is missing</p>");
     } else if ($gmessage != ""){
         $logtime = time();
         $logtstring = date("Y-m-d",$logtime);
-        $logbefore = file_get_contents("guestbook.txt");
+        $logbefore = file_get_contents("guestbook.log");
 
         fwrite($guestbook, $gname . " - " . $gmail ."\n" . $logtstring . "\n\n" .$gmessage ."\n\n" .$logbefore); // .$gemail ."\n" .$gmessage ."\n\n"
         fclose($guestbook);
-    } else { echo "No empty messages"; }
+        
+        
+    }
+}
 } else {
     echo "<h3>Skriv ett meddelande och tryck skicka!</h3>";
 }
-$myFile = new SplFileObject("guestbook.txt");
+$myFile = new SplFileObject("guestbook.log");
 
 while (!$myFile->eof()) {
     echo $myFile->fgets() . PHP_EOL;
@@ -308,13 +317,11 @@ if(isset($_POST['submit_form'])){
 
 }
 
-
-    
 ?>
 
     </div>
 
 </div>
 </body>
-
+<?php include "footer.php"; ?>
 </html>

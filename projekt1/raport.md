@@ -21,6 +21,7 @@ Fast rykten säger ju att cookies är på väg ut...
 Jag gillar väldigt mycket att bygga och leka med PHP-Sessions. Kanske fusk att ha arbetat extensivt på projekt 2 och sedan komma tillbaka till projekt 1 på det här sättet. Det blir ju svårt att tycka det var svårt den här gången. Jag minns att det inte var så svårt förra gången heller men vid det laget hade jag inte blivit tillräckligt bekväm med sessions. Jag utökade skakigt det du redan gjort på lektionen. Nu så känner jag att jag kan designa hela Session backend till alla möjliga sidor utan problem (har t.om experimenterat på egna projekt på sidan)
 
 ### Uppgift 7
+Denna uppgift är lite av en copy pasta, men den funkade faktiskt inte till först. Filrättigheterna för att kunna ladda till folder fixades genom FileZilla. Det som inte
 
 ### Uppgift 8
 Denna uppgift är väldigt simpel om man delar den på tre. Samla information du vill spara i variabler, skriv de sedan till en rad i en fil och till sist, läs antalet rader. OBS eftersom jag skriver in ny rad i slutet på varje input så kommer radräknaren ha en visitor för mycket. Så innan siffran skrivs ut tar vi bort en för att inte bli anklagade för fake news. För extrema poängen på slutet med specifika besökare så krävs det lite extra effort.
@@ -30,6 +31,11 @@ Slutliga lösningen kanske inte är det som gör dig mest glad att se men den fu
 
 ### Uppgift 9
 En av de krångligaste uppgifterna att få finslipat. Ganska många försök tills det blev någorlunda rätt.
+Att skriva till gästboken var det lättaste med uppgiften men två stora saker gav problem.
+#### 1 - Att skriva ut
+Att få en loop med fopen fread visade sig vara så krånglig att jag gick runt problemet helt enkelt med splFileObject... om man söker problem med loopar i fread fopen så gav resultaten problem och svar som inte motsvarade de problem som uppstod för mig.
+#### 2 - Kan inte få bort formen
+När man refreshar sidan EFTER att ha submittat en gång kommer php att försöka köra koden igen... Jag försökte bygga en redirect som skulle temporärt skicka dig till redirect.php MEN hur jag änn försökte så hade min sida nu en bugg som gör att header inte fungerar. Detta gör att jag inte lyckades skapa en metod där form rensas ut och har nu dubbletterings buggen kvar...
 
 ### Uppgift 10
 #### Ny stil på mina rapporter.
