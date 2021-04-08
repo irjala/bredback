@@ -3,11 +3,27 @@ session_start();
 ?>
 
 <!DOCTYPE html>
+
+
 <html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="Favicon.ico" type="image/png" />
+    <title>Back-end kurs PROJEKTFILER</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
 <body>
 
 <?php
 if (isset($_SESSION['access'])){
+
+    echo("<div id='container'>
+    <?php include 'navbar.php'?>");
+
     if ($_SESSION['access'] == "yesyoucan") {
     print("<p>Session content: </p>");
     print($_SESSION);
@@ -23,6 +39,7 @@ else {
 } else {
     print("You dont belong here!");
 }
+echo("</div>");
 ?>
 
 </body>

@@ -37,15 +37,16 @@ if (isset($_REQUEST['inDay']) && isset($_REQUEST['inMonth'])) {
 
     if($dag >= 1 && $dag <= $maxdays && $manad >= 1 && $manad < 13 && $artal >= 0){
 
-    $userinputdate = mktime(0, 0, 0, $manad, $dag, $artal);
+    $userinputdate = mktime(23, 59 , 59, $manad, $dag, $artal);
     print("<h3>Du valde datumet: " . gmdate("d.m.Y", $userinputdate) . "</h3>");
     $userinputdayname = swedishdays(gmdate("l", $userinputdate));
 
     print("<p>Ja du, det var ju en " . $userinputdayname . " som du lade in i fältet</p>");
-    $currentdate = mktime(0, 0, 0, date("m"), date("d"), date("Y"));
+    $currentdate = mktime(date("H"), date("i") , date("s"), date("m"), date("d"), date("Y"));
 
     if ($userinputdate > $currentdate) {
         //Användaren lade in framtids datum
+        $userinputdate = mktime(0, 0 , 0, $manad, $dag, $artal);
         $datediff = ($userinputdate - $currentdate);
         print("<p>Det är " . daysextract($datediff) . "</p>");
         print("<p>Tills det datum du valde</p>");
