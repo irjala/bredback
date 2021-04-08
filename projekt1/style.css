@@ -3,7 +3,14 @@ html, body {
     margin: 0;                   /* tar bort inbyggda marginaler */ 
     height: 100%;                /* Krävs av container eftersom dessa är föräldrarna */
     background-color: #3D3D3D;    
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', sans-serif, arial;
+}
+image{
+    width: 100%;
+    height: 100%;
+}
+#title{
+    padding-left: 37px;
 }
 #container {                     /* # för id . för klass */
     background-color: #FFF;
@@ -11,14 +18,25 @@ html, body {
     min-height: 100%;           /* Gör sidan full höjd */
     margin: auto;               /* Centrerar innehåll */
 }
-#CIA {
-    background-color: lightgreen;
-}
-#uploadfield {
-    background-color: lightskyblue;
+.segment {
+    background-image: linear-gradient(to left, #b3d1bc, rgb(245, 253, 248));
+    margin-left:35px;
+    margin-bottom: 10px;
+    padding-left: 15px;
+    max-width:700px;
+    height: auto;
+    border-radius: 10px;
+    border: 4px;
+    border-color: #1abc9c;
+    border-style:ridge;
+    border-bottom-right-radius: 50px;
 }
 article {
     padding: 0px 15px;          /* Skuffar in artikeln från vänster (och höger) kant */
+}
+.imagediv {
+    width:600px;
+    height:auto;
 }
 /* Huvudmenyn */
 nav {
@@ -33,4 +51,10 @@ nav a {                             /* multiple selectors */
 }
 nav a:hover {
     background-color: #00AA89;    /* Byter bakgrund on hover "pseudoklass" */ 
+}
+@media (max-width: 768px) {
+    .segment{
+        margin-left:5px;
+        margin-right:5px;
+    }
 }

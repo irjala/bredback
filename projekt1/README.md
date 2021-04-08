@@ -1,2 +1,10 @@
 # back-end
-Jag hoppas att detta projekt går till rätt git repo!
+
+Lärare Dennis Biström
+
+## Projekt 1
+
+Made by Jonas Irjala
+
+## CRED FÖR PARSEDOWNER
+https://github.com/erusev/parsedown
