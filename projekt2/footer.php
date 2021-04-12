@@ -1,6 +1,6 @@
 </section>
 
-<footer>Made by Anonymus</footer>
+<footer>Made by Jonas Irjala</footer>
 <?php $conn->close(); ?>
 </body>
 

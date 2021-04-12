@@ -2,7 +2,7 @@
 
 /* Här är sidhuvudet */
 header {
-  background-color: black;
+  background-color: rgb(88, 0, 122);
   color: white;
   font-weight: bold;
   display: flex; /* Förälder till nav */
@@ -22,8 +22,7 @@ header a {
   text-transform: uppercase;
   letter-spacing: 5px;
   font-size: 20px;
-  background-color: black;
-  font-family: "Caladea", serif;
+  background-color: transparent;
   width: 450px;
   height: 150px;
 }
@@ -31,8 +30,7 @@ header a {
 /* Menyn */
 nav {
   margin-left: auto; /* Skuffar menyn till högra kanten */
-  background-color: black;
-  font-family: "Caladea", serif;
+  background-color: rgb(88, 0, 122);
 }
 nav ul {
   padding-left: 0px; /* Bort med inbyggd padding så att mobila menyn blir under logon */
