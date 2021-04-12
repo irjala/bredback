@@ -61,9 +61,8 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   height: 100%;
 }
-body.h2 {
-  text-shadow:2px;
-  text-decoration-line:#428bca;
+h2 {
+  text-shadow: 0 0 3px #ffffff, 0 0 5px #4a0266;
 }
 section {
   color: #3d3d3d; /* fonten samma färg som body bakgrunden */
