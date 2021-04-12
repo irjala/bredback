@@ -1,6 +1,6 @@
 <?php include "init.php" ?>
 <?php include "head.php" ?>
-<div class="container">
+<div class="segment">
     <h2>Logga in!</h2>
 <form action="login.php" method="post">
   Användarnamn <br><input type="text" name="usr" id="usr"><br>

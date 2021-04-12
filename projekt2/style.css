@@ -61,16 +61,33 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   height: 100%;
 }
+body.h2 {
+  text-shadow:2px;
+  text-decoration-line:#428bca;
+}
 section {
   color: #3d3d3d; /* fonten samma färg som body bakgrunden */
   background-color: #fff;
   max-width: 1000px; /* Tablet-desktop "breakpoint" för läslighet */
-  margin: auto; /* Centrera på desktop */
+  margin: auto; /* Centrera på   desktop */
   min-height: 100%; /* Skuffa ner footern trots lite innehåll */
 }
 article {
   padding: 10px; /* Space mellan artikel & artikel (margin collapsar) */
   margin: 10px; /* Space mellan artikel och t.ex section */
+}
+.segment {
+  background-image: linear-gradient(to left, #ebcdd7, rgb(248, 125, 152));
+  margin-left:35px;
+  margin-bottom: 10px;
+  padding-left: 15px;
+  max-width:700px;
+  height: auto;
+  border-radius: 10px;
+  border: 4px;
+  border-color: #f4bcf6;
+  border-style:ridge;
+  border-bottom-right-radius: 50px;
 }
 /* Klasser i css med . */
 .separator {
