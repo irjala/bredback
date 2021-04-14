@@ -65,7 +65,7 @@
     echo "<div class='form'>
    <h3>Username/password is incorrect.</h3></div>";
   }
-  
+  $conn->close();
   /*$pwquery = "SELECT password FROM users WHERE password = ?";
   $pwstmt = $conn->prepare($pwquery);
   $pwstmt->bind_param("s",$password);

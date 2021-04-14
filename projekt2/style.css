@@ -193,14 +193,13 @@ footer {
   margin: 0px 10px 10px 0px;
 }
 .ad {
-  margin-left: auto;
-  margin-right: auto;
-  width: 20em;
+  text-align: center;
+  width: 17em;
   display: inline-block;
-  border: 5px solid #1c95a5;
-  margin: 20px;
-  padding: 10px;
-  background-color: rgb(156, 240, 243);
+  border-radius: 10px;
+  border: 5px outset #cf93da;
+  margin: 10px;
+  background-image: linear-gradient(rgb(245, 184, 245), rgb(253, 223, 251));
 }
 #registerbutton {
   width: 30%;

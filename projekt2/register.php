@@ -63,7 +63,8 @@ $preference = test_input($_POST['preference']);
     $stmt->execute(); // execute returnar true eller false
     $result = $stmt->get_result();
     $answer = mysqli_num_rows($result);
-
+    
+    $conn->close();
         // OM statement executades = Data har skrivits in i tabellen. SUCCESS.
         if ($answer == 1) {
                 $_SESSION['user'] = $username;
