@@ -1,7 +1,7 @@
 </section>
 
 <footer>Made by Jonas Irjala</footer>
-<?php //$conn->close(); ?>
+<?php $conn->close(); ?>
 </body>
 
 </html>

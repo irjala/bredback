@@ -5,15 +5,15 @@
 <form action="login.php" method="post">
   Användarnamn <br><input type="text" name="usr" id="usr"><br>
   Lösenord <br><input type="password" name="psw" id="psw"><br>
-  <input type="submit" value="Logga in">
+  <input type="submit" name="loginsubmit" value="Logga in">
 </form><br>
 
 <?php
 
-  if (isset($_POST['submit'])){
+  if (isset($_POST['loginsubmit'])){
     echo("STAGE 1 ");
-    $name = test_input($_REQUEST['usr']);
-    $password = test_input($_REQUEST['psw']);
+    $name = test_input($_POST['usr']);
+    $password = test_input($_POST['psw']);
 
     if($name == $password){
       echo("<p>OBS fälten får inte vara tomma eller samma!</p>");
@@ -43,16 +43,15 @@
       print("Successful log in");
 
     // Log in är lyckad så vi lägger info till session för framtida funktioner
-    $_SESSION['user'] = $name;
+    $_SESSION['user'] = $row['username'];
     $_SESSION['userID'] = $row['id'];
     $_SESSION['realname'] = $row['realname'];
 
-    header('Refresh:1; url=index.php');
+    header('Refresh:2; url=index.php');
   } else {
     echo "<div class='form'>
    <h3>Username/password is incorrect.</h3></div>";
   }
-  $conn->close();
   /*$pwquery = "SELECT password FROM users WHERE password = ?";
   $pwstmt = $conn->prepare($pwquery);
   $pwstmt->bind_param("s",$password);
