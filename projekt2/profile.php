@@ -1,6 +1,3 @@
-<?php include "init.php" ?>
-<?php include "head.php" ?>
-
 <article>
 <div class="profiledisp">
     <h2 id="profilHeader">Profilsida</h2>
@@ -47,7 +44,7 @@
         echo("<a href='../projekt2/editprofile.php'><button id='editProfileButton'>Byt info</button><a/><br>");
         
             include "comment.php";
-            include "commentprinter.php";
+            //include "commentprinter.php";
             echo("<br><br>");
             include "accdelete.php";
             
@@ -93,7 +90,7 @@
         
         echo("<br><br>");
         include "comment.php";
-        include "commentprinter.php";
+        //include "commentprinter.php";
             
         
         // Ej inloggad
@@ -131,7 +128,7 @@
             
         );
         include "comment.php";
-        include "commentprinter.php";
+        //include "commentprinter.php";
     }
 
     ?>

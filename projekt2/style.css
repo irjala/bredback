@@ -201,6 +201,12 @@ footer {
   margin: 10px;
   background-image: linear-gradient(rgb(245, 184, 245), rgb(253, 223, 251));
 }
+.ad h3{
+  letter-spacing: 2px;
+}
+.ad ul{
+  list-style-type:none;
+}
 #registerbutton {
   width: 30%;
   height: 40px;

@@ -63,12 +63,12 @@ function fetchAndWrite($sql) {
             $prefArr = array('Manlig', 'Kvinnliga', 'Annan', 'Båda', 'Alla');
             $prefGet = $row['preference'];
             //skriv ut endast ett värde (en kolumn en rad -- en cell)
-            print("<div class='ad'>");
-            print("<h3>Namn: </h3><p>" . $row['realname'] . "</p><br>");
-            print("<h3>Årslön: </h3><p>" . $row['salary'] . "</p><br>");
+            print("<div class='ad'><ul>");
+            print("<h3>Namn: </h3><li>" . $row['realname'] . "</li>");
+            print("<h3>Årslön: </h3><li>" . $row['salary'] . "</li>");
             $prefchoice = $prefArr[$prefGet-1];
-            print("<h3>Preferens: </h3><p>" . $prefchoice . "</p><br>");
-            print("<a href='./profile.php?user=".$row['username']."'>Gå till profilen</a></div>");
+            print("<h3>Preferens: </h3><li>" . $prefchoice . "</li><br>");
+            print("<a href='./profile.php?user=".$row['username']."'>Gå till profilen</a></ul></div>");
             $count++;
         }
 

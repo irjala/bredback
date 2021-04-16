@@ -12,16 +12,14 @@
     include "welcome.php";
     } else {
         echo("<a href='./logout.php' id='logout'>Logout</a>");
+        echo("<div class='segment'>");
+        include "profile.php";
+        echo("<(div><div class='segment'>");
+        include "comment.php";
+        echo("</div>");
     }
-
     ?>
 </article>
-
-<div>
-<?php include "profile.php" ?>
-<?php include "comment.php" ?>
-
-</div>
 
 
 <?php include "footer.php" ?>

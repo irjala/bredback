@@ -10,50 +10,37 @@
 
 <?php
 
-  if (isset($_POST['usr']) && isset($_POST['psw'])) //when form submitted
-  {
-    $name = $_POST['usr'];
-    $password = $_POST['psw'];
+  if (isset($_POST['submit'])){
+    echo("STAGE 1 ");
+    $name = test_input($_REQUEST['usr']);
+    $password = test_input($_REQUEST['psw']);
 
-    if($_POST['usr'] == $_POST['psw']){
+    if($name == $password){
       echo("<p>OBS fälten får inte vara tomma eller samma!</p>");
-    } else {
-
-
-   if(empty(trim($_POST["usr"]))){
+    } else if(empty($name)){
       $usr_error = "Du kan inte lämna användarnamn tomt.";
       print($usr_error);
-    } else{
-      $name = trim($_POST["usr"]);
-      $name = stripslashes($name);
-    }
-    if(empty(trim($_POST["psw"]))){
+    } else if(empty($password)){
       $psw_error = "Du kan inte lämna lösenord tomt.";
       print($psw_error);
-
-    } else{ 
-
-      // EFTER ATT HA PREDIKAT OM HUR BUGGIT DET HADE GÅTT... $password = stripslashes($name);... -_- egg on my face
-      
-      $password = trim($_POST["psw"]);
-      $password = stripslashes($password);
+    } else  { 
+      echo("STAGE 2 ");
+    $hashedpassword = hash("sha256", $password);
+    $conn = create_conn();
+    $query = "SELECT * FROM users WHERE username = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("s", $name);
+    $stmt->execute();
+    if ($stmt->execute()) { 
+      print("Server request sent. . . ");
+    } else {
+      print("Request failed");
     }
-    
-  $hashedpassword = hash("sha256", $password);
-  $conn = create_conn();
-  $query = "SELECT * FROM users WHERE username = ?";
-  $stmt = $conn->prepare($query);
-  $stmt->bind_param("s", $name);
-  $stmt->execute();
-  if ($stmt->execute()) { 
-    print("Server request sent. . . ");
- } else {
-    print("Request failed");
- }
-  $result = $stmt->get_result();
-  $row = mysqli_fetch_assoc($result);
-  if($hashedpassword==$row['password']){
-    print("Successful log in");
+    echo("STAGE 3 ");
+    $result = $stmt->get_result();
+    $row = mysqli_fetch_assoc($result);
+    if($hashedpassword==$row['password']){
+      print("Successful log in");
 
     // Log in är lyckad så vi lägger info till session för framtida funktioner
     $_SESSION['user'] = $name;
@@ -76,7 +63,7 @@
   
   }else{ 
     echo "<h3>Välkommen logga in på existerande konto</h3></div>";
-  
+    echo("STAGE -1 ");
 
   ?><div class="box">
   <p>Fyll i fältet ovanför och submit för att denna låda skall försvinna</p>

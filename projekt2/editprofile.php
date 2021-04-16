@@ -63,7 +63,7 @@
                 <br><br><input type='submit' name='prefsubmit' value='ändra' class='changebutton'></form><br><br><br>
                 <label>Updatera bio</label><br>
                 <form action='./editprofile.php' method='post'>
-                <textarea name='bioarea' rows='5' cols='40' name=bioinput>$bio</textarea><br>
+                <textarea name='bioarea' rows='5' cols='40' name='bioinput'>$bio</textarea><br>
                 <input type='submit' name='biosubmit' value='Updatera' class='changebutton'><br>
                 </form>
                 

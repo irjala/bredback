@@ -11,7 +11,7 @@
                 <li><label>Email</label><br><input type="text" name="eminput"/></li>
                 <li><label>Postnummer</label><br><input type="text" name="pninput"/></li><br>
                 <label>Berätta lite om dig själv</label><br>
-                <textarea name="comment" rows="5" cols="40" name=bioinput></textarea><br>
+                <textarea name="comment" rows="5" cols="40" name="bioinput"></textarea><br>
                 <li><label>Årslön</label> <input type="text" name="ysinput"/></li><br>
                 <li><label>Preferens</label><br>
                 <input type="radio" name="preference" value="1" id="male"/><label for="male" class="butlabel">Man</label><br>
@@ -64,10 +64,13 @@ $preference = test_input($_POST['preference']);
     $result = $stmt->get_result();
     $answer = mysqli_num_rows($result);
     
-    $conn->close();
+    
         // OM statement executades = Data har skrivits in i tabellen. SUCCESS.
         if ($answer == 1) {
                 $_SESSION['user'] = $username;
+                $row = $stmt->fetch_assoc();
+                $_SESSION['userID'] = $row['id'];
+
                 print("Du har registrerats!");
                 header('Refresh:1; url=https://cgi.arcada.fi/~irjalajo/BPREDUX/back-end/projekt2/profile.php?user='.$username);
 
@@ -82,5 +85,5 @@ $preference = test_input($_POST['preference']);
             echo("<h3>Du lyckades inte skriva ett lösenord två gånger</h3>");
     }
 } else {
-    $_SESSION['user'] = "";
+    $_SESSION['user'] = NULL;
 }
