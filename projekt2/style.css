@@ -225,7 +225,7 @@ footer {
 #likeb {
   border-style: none;
   margin: 5px 0px 10px 15px;
-  background-color: #1abc9c;
+  background-color: transparent;
 }
 #likeb:hover {
   fill: darkblue;
@@ -236,10 +236,10 @@ footer {
 #dislikeb {
   border-style: none;
   margin: 5px 0px 10px 5px;
-  background-color: #1abc9c;
+  background-color: transparent;
 }
 #dislikeb:hover {
-  fill: darkblue;
+  fill: rgb(139, 0, 35);
 }
 #dislikeb:active {
   fill: rgb(206, 4, 45);

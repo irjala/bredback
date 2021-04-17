@@ -1,5 +1,6 @@
 <?php
 session_start();
+$prefArr = array('Manlig', 'Kvinnliga', 'Annan', 'Båda', 'Alla');
 
 // Remove whitespaces, remove extra slashes, and convert to safe html characters
 // USE FOR ALL USER INPUT

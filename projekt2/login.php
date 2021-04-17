@@ -47,7 +47,7 @@
     $_SESSION['userID'] = $row['id'];
     $_SESSION['realname'] = $row['realname'];
 
-    header('Refresh:2; url=index.php');
+    header('Refresh:0; url=index.php');
   } else {
     echo "<div class='form'>
    <h3>Username/password is incorrect.</h3></div>";

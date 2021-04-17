@@ -1,7 +1,11 @@
 </section>
 
 <footer>Made by Jonas Irjala</footer>
-<?php $conn->close(); ?>
+<?php 
+if(isset($conn)){
+$conn->close();
+}
+?>
 </body>
 
 </html>

@@ -6,8 +6,8 @@
             <br>
                 <li><label>Användarnamn</label><br><input type="text" name="uninput"/></li>
                 <li><label>Namn</label><br><input type="text" name="rninput"/></li><br>
-                <li><label>Lösenord</label><br><input type="text" name="pwinput"/></li>
-                <li><label>Repetera lösenordet</label><br><input type="text" name="pwrepeat"/></li><br>
+                <li><label>Lösenord</label><br><input type="password" name="pwinput"/></li>
+                <li><label>Repetera lösenordet</label><br><input type="password" name="pwrepeat"/></li><br>
                 <li><label>Email</label><br><input type="text" name="eminput"/></li>
                 <li><label>Postnummer</label><br><input type="text" name="pninput"/></li><br>
                 <label>Berätta lite om dig själv</label><br>
@@ -68,11 +68,11 @@ $preference = test_input($_POST['preference']);
         // OM statement executades = Data har skrivits in i tabellen. SUCCESS.
         if ($answer == 1) {
                 $_SESSION['user'] = $username;
-                $row = $stmt->fetch_assoc();
+                $row = $result->fetch_assoc();
                 $_SESSION['userID'] = $row['id'];
 
                 print("Du har registrerats!");
-                header('Refresh:1; url=https://cgi.arcada.fi/~irjalajo/BPREDUX/back-end/projekt2/profile.php?user='.$username);
+                header('Refresh:1; url=https://cgi.arcada.fi/~irjalajo/bredback/projekt2/index.php');
 
             } else {
                 // Ifall statement failade att executa.
