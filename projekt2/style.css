@@ -2,7 +2,7 @@
 
 /* Här är sidhuvudet */
 header {
-  background-color: rgb(88, 0, 122);
+  background-image: linear-gradient(to left, #5b3a68, rgb(219, 155, 216));
   color: white;
   font-weight: bold;
   display: flex; /* Förälder till nav */
@@ -29,8 +29,10 @@ header a {
 
 /* Menyn */
 nav {
+  font-size: x-large;
   margin-left: auto; /* Skuffar menyn till högra kanten */
-  background-color: rgb(88, 0, 122);
+  background-color: transparent;
+  text-shadow: 0 0 3px #140f0f, 0 0 5px #bd2ec2;
 }
 nav ul {
   padding-left: 0px; /* Bort med inbyggd padding så att mobila menyn blir under logon */
@@ -46,7 +48,8 @@ nav li {
   border-radius: 5px; /* Hovereffekts runda kanter */
 }
 nav li:hover {
-  background-color: goldenrod; /* Hovereffekt */
+  background-color: plum; /* Hovereffekt */
+  text-shadow: 0 0 3px #ff36bc, 0 0 5px #f504fd;
 }
 /*Bestämmer hur exakt texten på länkarna är formaterade i nav*/
 
@@ -62,7 +65,7 @@ body {
   height: 100%;
 }
 h2 {
-  text-shadow: 0 0 3px #ffffff, 0 0 5px #4a0266;
+  text-shadow: 0 0 3px #ffffff, 0 0 5px #bd2ec2;
 }
 section {
   color: #3d3d3d; /* fonten samma färg som body bakgrunden */
@@ -75,6 +78,8 @@ article {
   padding: 10px; /* Space mellan artikel & artikel (margin collapsar) */
   margin: 10px; /* Space mellan artikel och t.ex section */
 }
+
+/* Div stylings och button stylings */
 .segment {
   background-image: linear-gradient(to left, #ebcdd7, rgb(248, 125, 152));
   margin-left:35px;
@@ -87,6 +92,37 @@ article {
   border-color: #f4bcf6;
   border-style:ridge;
   border-bottom-right-radius: 50px;
+}
+.infobox {
+  background-image: linear-gradient(to left, #ebcdd7, rgb(255, 205, 216));
+  margin-left:35px;
+  margin-bottom: 10px;
+  padding-left: 15px;
+  max-width:500px;
+  height: auto;
+  border-radius: 10px;
+  border: 4px;
+  border-color: #e8d6e9;
+  border-style:ridge;
+  border-bottom-right-radius: 50px;
+}
+.infobox button{
+  font-size: x-large;
+}
+#registerbutton {
+  width: 30%;
+  height: 40px;
+  background-color: green;
+  border: none;
+  color: white;
+  font-size: larger;
+  cursor: pointer;
+  margin-bottom: 20px;
+  border-radius: 25px;
+}
+#logout { 
+  margin-right: 20px;
+  float: right;
 }
 /* Klasser i css med . */
 .separator {
@@ -103,7 +139,7 @@ h1 {
 
 /* Sidfoten */
 footer {
-  background-color: #1abc9c;
+  background-color: #5b3a68;
   color: white;
   text-align: center;
   font-weight: bold;
@@ -125,8 +161,8 @@ footer {
   text-align: left;
 }
 .container {
-  width: 800px;
-  background-color: rgb(156, 240, 243);
+  width: auto;
+  height: auto;
 }
 .container h2 {
   padding: 30px 50px;
@@ -192,6 +228,8 @@ footer {
   display: block;
   margin: 0px 10px 10px 0px;
 }
+
+/* FETCH AD STYLING */
 .ad {
   text-align: center;
   width: 17em;
@@ -207,21 +245,9 @@ footer {
 .ad ul{
   list-style-type:none;
 }
-#registerbutton {
-  width: 30%;
-  height: 40px;
-  background-color: green;
-  border: none;
-  color: white;
-  font-size: larger;
-  cursor: pointer;
-  margin-bottom: 20px;
-  border-radius: 25px;
-}
-#logout {
-  margin-right: 20px;
-  float: right;
-}
+
+
+/* LIKE BUTTON STYLINGS */
 #likeb {
   border-style: none;
   margin: 5px 0px 10px 15px;
@@ -244,6 +270,8 @@ footer {
 #dislikeb:active {
   fill: rgb(206, 4, 45);
 }
+
+/* delete BOX */
 CSS .box {
   display: none;
   background: #ccc;
@@ -291,6 +319,9 @@ CSS .box {
   }
   nav {
     margin-top: 10px; /* Lite space mellan meny och logo */
+  }
+  .infobox {
+    margin-left:0px;
   }
 }
 #profilHeader {

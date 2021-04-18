@@ -2,7 +2,6 @@
 <?php include "head.php" ?>
 <article>
 <div class="profiledisp">
-    <h2 id="profilHeader">Profilsida</h2>
 
 
     <?php
@@ -29,8 +28,8 @@
             echo(
             "<ul class='registerlist'>
                 <br>
+                <li>    <h2>".$row['realname']. "</h2></li>
                 <li><label>Användarnamn</label><br><h3>".$row['username']. "</h3></li>
-                <li><label>Namn</label><br><h3>".$row['realname']. "</h3></li>
                 <li><label>Email</label><br><h3>".$row['email']. "</h3></li>
                 <li><label>Postnummer</label><br><h3>".$row['zipcode']. "</h3></li><br>
 
@@ -68,8 +67,8 @@
         echo(
             "<ul class='registerlist'>
                 <br>
+                <li><h2>".$row['realname']. "</h2></li>
                 <li><label>Användarnamn</label><br><h3>".$row['username']. "</h3></li>
-                <li><label>Namn</label><br><h3>".$row['realname']. "</h3></li>
                 <li><label>Email</label><br><h3>".$row['email']. "</h3></li>
                 <li><label>Postnummer</label><br><h3>".$row['zipcode']. "</h3></li><br>
 
@@ -113,8 +112,8 @@
         echo(
             "<ul class='registerlist'>
                 <br>
+                <li><h2>".$row['realname']. "</h2></li><br>
                 <li><label>Användarnamn</label><br><h3>".$row['username']. "</h3></li>
-                <li><label>Namn</label><br><h3>".$row['realname']. "</h3></li><br>
                 <li><span class='nopclass'>Email</span><br><h4>Endast de som är inloggade kan se årslön</h4></li><br>
                 <li><label>Postnummer</label><br><h3>".$row['zipcode']. "</h3></li><br>
 

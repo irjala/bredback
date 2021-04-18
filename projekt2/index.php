@@ -7,9 +7,10 @@
     <br>
     <p>Ni kommer ha det fett najs här!</p>
     </article>
+    <div class="divadd">
     <?php
     if (!isset($_SESSION['user'])){
-        echo("<div><p>Du är för tillfället inte inloggad</p>");
+        echo("<h3>Du är för tillfället inte inloggad</h3><div class='infobox'>");
         include "welcome.php";
         echo("</div>");
     } else {
@@ -19,6 +20,7 @@
         echo("</div>");
     }
     ?>
+    </div>
 
 
 <?php include "footer.php" ?>
