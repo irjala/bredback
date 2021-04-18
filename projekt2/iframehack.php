@@ -2,7 +2,7 @@
 echo("<h3>STAGE 1</h3>");
 include "init.php";
 
-$sesskey = $_POST['accdeletion'];
+$sesskey = $_SESSION['user'];
 
 $query = "SELECT password FROM users WHERE username = ?";
 $conn = create_conn();
@@ -26,7 +26,13 @@ if (isset($_POST['delpw'])) {
             $stmt = $conn->prepare($query);
             $stmt->bind_param("s",$sesskey);
             $stmt->execute();
+
             session_destroy();
+            echo("
+            <script type='text/JavaScript'>
+                  window.top.location.href = 'https://cgi.arcada.fi/~irjalajo/bredback/projekt2/';
+            </script>
+            ");
         } else {
             print("<p>:)</p>");
         }

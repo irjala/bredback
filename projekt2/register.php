@@ -70,6 +70,7 @@ $preference = test_input($_POST['preference']);
                 $_SESSION['user'] = $username;
                 $row = $result->fetch_assoc();
                 $_SESSION['userID'] = $row['id'];
+                $_SESSION['realname'] = $row['realname'];
 
                 print("Du har registrerats!");
                 header('Refresh:1; url=https://cgi.arcada.fi/~irjalajo/bredback/projekt2/index.php');

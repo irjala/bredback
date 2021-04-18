@@ -67,4 +67,7 @@ Javisst
 ### Uppgift 10
 Javisst
 
+## Elefanten i rummet
+Mycket av min rapport är kort och konsis för det är hur min åsyn på projektet är efter all denna tid som jag lagt på PHP och SQL
+
 ## KURS FEEDBACK

@@ -107,7 +107,7 @@ article {
   border-bottom-right-radius: 50px;
 }
 .infobox button{
-  font-size: x-large;
+  font-size: large;
 }
 #registerbutton {
   width: 30%;
@@ -271,6 +271,7 @@ footer {
   fill: rgb(206, 4, 45);
 }
 
+
 /* delete BOX */
 CSS .box {
   display: none;
@@ -306,6 +307,9 @@ CSS .box {
 }
 @media (max-width: 700px) {
   /* Breakpoint vid <700pxs skärmar (mobil portrait) */
+  #logo {
+    display:none;
+  }
   nav li {
     float: none; /* Gör menyn vertikal */
     width: 200px; /* Minska på elementens bredd (bara för hover effekten) */
@@ -318,8 +322,13 @@ CSS .box {
     font-size: x-large;
   }
   nav {
+    background-image: url("./testmedia/placeholder.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 200px;
     margin-top: 10px; /* Lite space mellan meny och logo */
   }
+
   .infobox {
     margin-left:0px;
   }

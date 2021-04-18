@@ -4,7 +4,7 @@
 <article>
     <h1>Bläddra i kontaktannonserna</h1>
     <p>Använd filter för att specifiera din sökning</p>
-    <p>
+    <div>
         <!-- Formulär -->
         <form action="users.php" method="get">
 
@@ -35,8 +35,9 @@
 
                 <input type="submit" value="Filtrera">
         </form>
-            
-    </p>
+        
+        
+    </div>
     <?php include "fetch.php" ?>
 </article>
 

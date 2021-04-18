@@ -31,6 +31,7 @@ if (isset($_SESSION['user'])) {
             </ul><br><br>"
         );
         echo("<a href='../projekt2/editprofile.php'><button id='editProfileButton'>Byt info</button><a/><br>");
+        include "accdelete.php";
         include "commentprinter.php";
     }
         ?>
