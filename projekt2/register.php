@@ -11,7 +11,7 @@
                 <li><label>Email</label><br><input type="text" name="eminput"/></li>
                 <li><label>Postnummer</label><br><input type="text" name="pninput"/></li><br>
                 <label>Berätta lite om dig själv</label><br>
-                <textarea name="comment" rows="5" cols="40" name="bioinput"></textarea><br>
+                <textarea rows="5" cols="40" name="bioinput"></textarea><br>
                 <li><label>Årslön</label> <input type="text" name="ysinput"/></li><br>
                 <li><label>Preferens</label><br>
                 <input type="radio" name="preference" value="1" id="male"/><label for="male" class="butlabel">Man</label><br>
@@ -65,8 +65,8 @@ $preference = test_input($_POST['preference']);
             $getback = "SELECT * FROM users WHERE username = ?";
                 $restmt = $conn->prepare($getback);
                 $restmt->bind_param("s", $username);
-                $reexec = $restmt->execute();
-                $reresult = $reexec->get_result();
+                $restmt->execute();
+                $reresult = $restmt->get_result();
                 $row = mysqli_fetch_assoc($reresult);
 
                 $_SESSION['user'] = $row['username'];
