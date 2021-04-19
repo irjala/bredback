@@ -1,6 +1,7 @@
 <div>
     <h3>JAVISST</h3>
 <?php
+if(isset($_GET['user'])){
 $compage = $_GET['user'];
 
 $conn = create_conn();
@@ -44,6 +45,7 @@ $result = $conn->query($sqlcomment);
 
     } else {
         print("något gick fel, senaste felet:" . $conn->error);
+}
 }
 ?>
 </div>
