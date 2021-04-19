@@ -24,13 +24,8 @@
     </form>
 
 <?php
-print("Stage 0");
 // Kolla att man klickat submit!
 if (isset($_POST['submit'])){
-    print("Stage 1");
-
-
-//$prefArr = array['Manlig', 'Kvinnliga', 'Annan', 'Båda', 'Alla'];
 
 //if (isset($_REQUEST['usr']) && isset($_REQUEST['psw'])  ) {
 //KOM IHÅG XSS PROTECTION
@@ -40,11 +35,11 @@ $repassword = test_input($_REQUEST['pwrepeat']);
 $realname = test_input($_POST['rninput']); 
 $email = test_input($_POST['eminput']); 
 $zip = test_input($_POST['pninput']); 
-$bio = test_input($_POST['bioinput']); 
+$bio = test_text($_POST['bioinput']); 
 $salary = test_input($_POST['ysinput']);
 $preference = test_input($_POST['preference']);
 
-    // OM båda passwordena är samma går vi vidare
+    // OM båda passwords är samma går vi vidare
     if ($password == $repassword){
     $conn = create_conn();
     
@@ -67,11 +62,17 @@ $preference = test_input($_POST['preference']);
     
         // OM statement executades = Data har skrivits in i tabellen. SUCCESS.
         if ($answer == 1) {
-                $_SESSION['user'] = $username;
-                $row = $result->fetch_assoc();
+            $getback = "SELECT * FROM users WHERE username = ?";
+                $restmt = $conn->prepare($getback);
+                $restmt->bind_param("s", $username);
+                $reexec = $restmt->execute();
+                $reresult = $reexec->get_result();
+                $row = mysqli_fetch_assoc($reresult);
+
+                $_SESSION['user'] = $row['username'];
                 $_SESSION['userID'] = $row['id'];
                 $_SESSION['realname'] = $row['realname'];
-
+                
                 print("Du har registrerats!");
                 header('Refresh:1; url=https://cgi.arcada.fi/~irjalajo/bredback/projekt2/index.php');
 

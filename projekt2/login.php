@@ -11,7 +11,6 @@
 <?php
 
   if (isset($_POST['loginsubmit'])){
-    echo("STAGE 1 ");
     $name = test_input($_POST['usr']);
     $password = test_input($_POST['psw']);
 
@@ -24,7 +23,6 @@
       $psw_error = "Du kan inte lämna lösenord tomt.";
       print($psw_error);
     } else  { 
-      echo("STAGE 2 ");
     $hashedpassword = hash("sha256", $password);
     $conn = create_conn();
     $query = "SELECT * FROM users WHERE username = ?";
@@ -36,7 +34,6 @@
     } else {
       print("Request failed");
     }
-    echo("STAGE 3 ");
     $result = $stmt->get_result();
     $row = mysqli_fetch_assoc($result);
     if($hashedpassword==$row['password']){
@@ -62,7 +59,6 @@
   
   }else{ 
     echo "<h3>Välkommen logga in på existerande konto</h3></div>";
-    echo("STAGE -1 ");
 
   ?><div class="box">
   <p>Fyll i fältet ovanför och submit för att denna låda skall försvinna</p>

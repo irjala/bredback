@@ -73,49 +73,49 @@
 
         
     if(isset($_POST['upname']) && isset($_POST['namesubmit'])){
-        $input = $_POST['upname'];
+        $input = test_input($_POST['upname']);
         $column = "realname";
         updateField($column, $input , $userID);
         print("Real name updated to: ".$input);
         header("Refresh:0");
     }
     if(isset($_POST['upemail']) && isset($_POST['emailsubmit'])){
-        $input = $_POST['upemail'];
+        $input = test_input($_POST['upemail']);
         $column = "email";
         updateField($column, $input , $userID);
         print("Email updated to: ".$input);
         header("Refresh:0");
     }
     if(isset($_POST['upzipcode']) && isset($_POST['zipsubmit'])){
-        $input = $_POST['upzipcode'];
+        $input = test_input($_POST['upzipcode']);
         $column = "zipcode";
         updateField($column, $input , $userID);
         print("Zipcode updated to: ".$input);
         header("Refresh:0");
     }
     if(isset($_POST['uparslan']) && isset($_POST['lansubmit'])){
-        $input = $_POST['uparslan'];
+        $input = test_input($_POST['uparslan']);
         $column = "salary";
         updateField($column, $input , $userID);
         print("Salary updated to: ".$input);
         header("Refresh:0");
     }
     if(isset($_POST['uppassword']) && isset($_POST['pwsubmit'])){
-        $input = $_POST['uppassword'];
+        $input = test_input($_POST['uppassword']);
         $column = "password";
         updateField($column, $input , $userID);
         print("Password has been updated");
         header("Refresh:0");
     }
     if(isset($_POST['preference']) && isset($_POST['prefsubmit'])){
-        $input = $_POST['preference'];
+        $input = test_input($_POST['preference']);
         $column = "preference";
         updateField($column, $input , $userID);
         print("Preference has been updated");
         header("Refresh:0");
     }
     if(isset($_POST['bioarea']) && isset($_POST['biosubmit'])){
-        $input = $_POST['bioarea'];
+        $input = test_text($_POST['bioarea']);
         $column = "bio";
         updateField($column, $input , $userID);
         print("Bio has been updated");

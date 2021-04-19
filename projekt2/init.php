@@ -11,6 +11,12 @@ function test_input($data)
     $data = htmlspecialchars($data);
     return $data;
 }
+function test_text($data)
+{
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
 
 function prefString($numb){
     $prefarray = array('Man', 'Kvinna', 'Annan', 'Båda', 'Allt');
