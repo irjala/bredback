@@ -16,7 +16,8 @@ if (isset($_SESSION['user'])) {
         $_SESSION['curr'] = $row['id'];
         $_SESSION['pager'] = $row['username'];
         echo(
-            "<ul class='registerlist'>
+            "<h2>Din profil</h2>
+            <ul class='registerlist'>
                 <br>
                 <li><label>Användarnamn</label><br><h3>".$row['username']. "</h3></li>
                 <li><label>Namn</label><br><h3>".$row['realname']. "</h3></li>

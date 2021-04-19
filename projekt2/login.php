@@ -1,13 +1,13 @@
 <?php include "init.php" ?>
 <?php include "head.php" ?>
-<div class="segment">
+<article>
+  <div class="formbox">
     <h2>Logga in!</h2>
 <form action="login.php" method="post">
-  Användarnamn <br><input type="text" name="usr" id="usr"><br>
+  Användarnamn <br><input type="text" name="usr" id="usr"><br><br>
   Lösenord <br><input type="password" name="psw" id="psw"><br>
   <input type="submit" name="loginsubmit" value="Logga in">
 </form><br>
-
 <?php
 
   if (isset($_POST['loginsubmit'])){
@@ -58,10 +58,12 @@
   } 
   
   }else{ 
-    echo "<h3>Välkommen logga in på existerande konto</h3></div>";
+    echo "<h3>Välkommen logga in på ett existerande konto</h3></div>";
 
   ?><div class="box">
   <p>Fyll i fältet ovanför och submit för att denna låda skall försvinna</p>
   </div>
+  </div>
   <?php } ?>
+  </article>
   <!-- < ?php include "footer.php" ?> --> 

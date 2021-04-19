@@ -3,14 +3,10 @@
 
 
     <article>
-    <h1>Dating sajt :O</h1>
-    <br>
-    <p>Ni kommer ha det fett najs här!</p>
-    </article>
-    <div class="divadd">
+    <h1>Dating Shmating</h1>
     <?php
     if (!isset($_SESSION['user'])){
-        echo("<h3>Du är för tillfället inte inloggad</h3><div class='infobox'>");
+        echo("<h2>Om du har ett konto, logga in. Annars kan du registrera dig</h2><div class='formbox'>");
         include "welcome.php";
         echo("</div>");
     } else {
@@ -20,7 +16,7 @@
         echo("</div>");
     }
     ?>
-    </div>
+    </article>
 
 
 <?php include "footer.php" ?>

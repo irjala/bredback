@@ -4,7 +4,7 @@
 <article>
     <h1>Bläddra i kontaktannonserna</h1>
     <p>Använd filter för att specifiera din sökning</p>
-    <div>
+    <div class="formbox">
         <!-- Formulär -->
         <form action="users.php" method="get">
 
