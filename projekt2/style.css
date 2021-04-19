@@ -95,12 +95,12 @@ article {
   border-style:ridge;
   border-bottom-right-radius: 50px;
 }
-.segment h2{
+.segment h2 h3 h4{
   font-size:xx-large;
   padding-left: 50px;
 }
 .segment p{
-  font-size:x-large;
+  font-size:large;
 }
 .infobox {
   background-image: linear-gradient(to left, #ebcdd7, rgb(255, 205, 216));
