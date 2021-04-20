@@ -1,4 +1,4 @@
-<a href="./"><img id="logo" src="./testmedia/placeholder.png" alt="DenDär" /></a>
+<a href="./"><img id="logo" src="./images/schmating.png" alt="Dating Schmating" /></a>
 <nav>
     <ul>
         <li><a href="./index.php">Hem</a></li>

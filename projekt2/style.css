@@ -148,7 +148,7 @@ h1 {
 
 /* Sidfoten */
 footer {
-  background-color: #5b3a68;
+  background-image: linear-gradient(to left,rgb(219, 155, 216), #272727);
   color: white;
   text-align: center;
   font-weight: bold;
@@ -186,14 +186,21 @@ footer {
 }
 .comment {
   width: 350px;
+  padding-left:20px;
+  margin:10px 10px 10px 10px;
   border-style: solid;
-  border-color: #ffccfc;
+  border-color: #d8c2d7;
   border-width: 4px;
+}
+.commentwrite {
+  width: 350px;
+  padding-left:5px;
+  margin:10px 10px 10px 10px;
 }
 .reply {
   width: 280px;
-  border-style: solid;
-  border-color: #ffccfc;
+  border-style:initial;
+  border-color: #331731;
   border-width: 4px;
 }
 .formbox {
@@ -224,8 +231,8 @@ footer {
 
 .profiledisp {
   width: 400px;
+  height: auto;
   margin: 20px 20px;
-  background-color: rgb(156, 240, 243);
 }
 .registerlist {
   margin: auto;
@@ -266,13 +273,14 @@ footer {
 
 /* FETCH AD STYLING */
 .ad {
-  text-align: center;
+  text-align: left;
+  padding-left:12px;
   width: 17em;
   display: inline-block;
   border-radius: 10px;
-  border: 5px outset #cf93da;
+  border: 5px outset #eebcf7;
   margin: 10px;
-  background-image: linear-gradient(rgb(245, 184, 245), rgb(253, 223, 251));
+  background-image: linear-gradient(rgb(247, 207, 233), rgb(245, 184, 225));
 }
 .ad h3{
   letter-spacing: 2px;
@@ -357,10 +365,11 @@ CSS .box {
     font-size: x-large;
   }
   nav {
-    background-image: url("./testmedia/placeholder.png");
+    text-shadow: #272727;
+    background-image: url("./images/schmating.png");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 200px;
+    background-size: 350px;
     margin-top: 10px; /* Lite space mellan meny och logo */
   }
 

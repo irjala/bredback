@@ -103,7 +103,7 @@
     if(isset($_POST['uppassword']) && isset($_POST['pwsubmit'])){
         $input = test_input($_POST['uppassword']);
         $column = "password";
-        updateField($column, $input , $userID);
+        updatePassword($column, $input , $userID);
         print("Password has been updated");
         header("Refresh:0");
     }

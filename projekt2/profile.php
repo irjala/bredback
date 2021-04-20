@@ -1,7 +1,7 @@
 <?php include "init.php" ?>
 <?php include "head.php" ?>
 <article>
-<div class="profiledisp">
+<div class="infobox">
 
 
     <?php
@@ -26,7 +26,7 @@
             $_SESSION['curr'] = $row['id'];
             $_SESSION['pager'] = $row['username'];
             echo(
-            "<ul class='registerlist'>
+            "<ul class='profiledisp'>
                 <br>
                 <li>    <h2>".$row['realname']. "</h2></li>
                 <li><label>Användarnamn</label><br><h3>".$row['username']. "</h3></li>
@@ -65,7 +65,7 @@
         $_SESSION['curr'] = $row['id'];
         $_SESSION['pager'] = $row['username'];
         echo(
-            "<ul class='registerlist'>
+            "<ul class='profiledisp'>
                 <br>
                 <li><h2>".$row['realname']. "</h2></li>
                 <li><label>Användarnamn</label><br><h3>".$row['username']. "</h3></li>
@@ -110,7 +110,7 @@
         $_SESSION['curr'] = $row['id'];
         $_SESSION['pager'] = $row['username'];
         echo(
-            "<ul class='registerlist'>
+            "<ul class='profiledisp'>
                 <br>
                 <li><h2>".$row['realname']. "</h2></li><br>
                 <li><label>Användarnamn</label><br><h3>".$row['username']. "</h3></li>

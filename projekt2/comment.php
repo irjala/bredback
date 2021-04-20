@@ -1,4 +1,4 @@
-<div class="comment">
+<div class="commentwrite">
     <h4>Write a comment</h3>
     <form method="post">
     <textarea name="commentfield" rows="5" cols="40"></textarea>

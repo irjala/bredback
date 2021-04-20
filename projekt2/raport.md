@@ -74,6 +74,7 @@ Jag ville också göra det möjligt att kommentera på andras kommentarer men de
 En liten extra detalj är att jag skapade en user som heter ANONYM som är otillgänglig för site användare. Om man inte är inloggad så blir den kommentaren tilldelad till detta konto. Detta gjorde det lätt att koda så att alla icke inloggade heter Anonym och får en timestamp på kommentaren.
 
 ## Elefanten i rummet
-Mycket av min rapport är kort och konsis för det är hur min åsyn på projektet är efter all denna tid som jag lagt på PHP och SQL. Jag känner att jag har fast grepp över allt vi rört i denna kurs.
+Mycket av min rapport är kort och konsis för det är hur min åsyn på projektet är efter all denna tid som jag lagt på PHP och SQL. Jag känner att jag har fast grepp över allt vi rört i denna kurs och kan använda det till "riktiga" projekt. Det var ändå en lång väg dit med flera fallgropar. Inte minst av allt var att jag inte kunnat ana hur många misstag man får ha i en chrome browser. Det här gav mig ett falkst lugn. Koden körde när jag testade den, men den var bruten när den öppnades i firefox. När jag börjat om projekt 2 så har det varit en stor mängd förändringar. Många element togs bort för att ens ha en grund att börja troubleshoota ifrån.
 
 ## KURS FEEDBACK
+Kurs materialet har gåtts igenom bra och med en mindre klass märker man att det finns mera chans och rum att prata om problem, vad som är svårt och allmänt engagera sig i kursen. Den verkar vara rätt kort och hastig men för mig som nu har färdiga grundkunskaper i php innan kursen började så är det svårt att avgöra eller uttala mig om.
