@@ -1,4 +1,4 @@
-<p>Logga in dig för att unleasha the full power of KISS KISS BANG BANG!</p>
+<p>Vår sida fungerar bäst om du har ett konto och är inloggad</p>
     <a href="index.php?stage=signin"><input type="button" value="logga in"></a>
     <a href="index.php?stage=signup"><input type="button" value="registrera dig" id="registbut"></a><br><br><br>
     

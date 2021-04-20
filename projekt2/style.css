@@ -2,7 +2,7 @@
 
 /* Här är sidhuvudet */
 header {
-  background-color: black;
+  background-image: linear-gradient(to left, #272727, rgb(219, 155, 216));
   color: white;
   font-weight: bold;
   display: flex; /* Förälder till nav */
@@ -22,17 +22,17 @@ header a {
   text-transform: uppercase;
   letter-spacing: 5px;
   font-size: 20px;
-  background-color: black;
-  font-family: "Caladea", serif;
+  background-color: transparent;
   width: 450px;
   height: 150px;
 }
 
 /* Menyn */
 nav {
+  font-size: x-large;
   margin-left: auto; /* Skuffar menyn till högra kanten */
-  background-color: black;
-  font-family: "Caladea", serif;
+  background-color: transparent;
+  text-shadow: 0 0 3px #140f0f, 0 0 5px #bd2ec2;
 }
 nav ul {
   padding-left: 0px; /* Bort med inbyggd padding så att mobila menyn blir under logon */
@@ -48,7 +48,8 @@ nav li {
   border-radius: 5px; /* Hovereffekts runda kanter */
 }
 nav li:hover {
-  background-color: goldenrod; /* Hovereffekt */
+  background-color: plum; /* Hovereffekt */
+  text-shadow: 0 0 3px #ff36bc, 0 0 5px #f504fd;
 }
 /*Bestämmer hur exakt texten på länkarna är formaterade i nav*/
 
@@ -63,16 +64,74 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   height: 100%;
 }
+h2 {
+  text-shadow: 0 0 3px #ffffff, 0 0 5px #bd2ec2;
+}
 section {
   color: #3d3d3d; /* fonten samma färg som body bakgrunden */
   background-color: #fff;
   max-width: 1000px; /* Tablet-desktop "breakpoint" för läslighet */
-  margin: auto; /* Centrera på desktop */
+  margin: auto; /* Centrera på   desktop */
   min-height: 100%; /* Skuffa ner footern trots lite innehåll */
 }
 article {
   padding: 10px; /* Space mellan artikel & artikel (margin collapsar) */
   margin: 10px; /* Space mellan artikel och t.ex section */
+}
+
+/* Div stylings och button stylings */
+.segment {
+  animation: colorchange 20s linear 1s infinite;
+  -webkit-animation: colorchange 20s linear 0s infinite alternate;
+  margin-left:35px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  padding:15px 15px 15px 15px;
+  max-width:700px;
+  height: auto;
+  border-radius: 10px;
+  border: 4px;
+  border-color: #f4bcf6;
+  border-style:ridge;
+  border-bottom-right-radius: 50px;
+}
+.segment h2 h3 h4{
+  font-size:xx-large;
+  padding-left: 50px;
+}
+.segment p{
+  font-size:large;
+}
+.infobox {
+  background-image: linear-gradient(to left, #ebcdd7, rgb(255, 205, 216));
+  margin-left:35px;
+  margin-bottom: 10px;
+  padding-left: 15px;
+  max-width:500px;
+  height: auto;
+  border-radius: 10px;
+  border: 4px;
+  border-color: #e8d6e9;
+  border-style:ridge;
+  border-bottom-right-radius: 50px;
+}
+.infobox button{
+  font-size: large;
+}
+#registerbutton {
+  width: 30%;
+  height: 40px;
+  background-color: green;
+  border: none;
+  color: white;
+  font-size: larger;
+  cursor: pointer;
+  margin-bottom: 20px;
+  border-radius: 25px;
+}
+#logout { 
+  margin-right: 20px;
+  float: right;
 }
 /* Klasser i css med . */
 .separator {
@@ -89,7 +148,7 @@ h1 {
 
 /* Sidfoten */
 footer {
-  background-color: #1abc9c;
+  background-image: linear-gradient(to left,rgb(219, 155, 216), #272727);
   color: white;
   text-align: center;
   font-weight: bold;
@@ -111,8 +170,8 @@ footer {
   text-align: left;
 }
 .container {
-  width: 800px;
-  background-color: rgb(156, 240, 243);
+  width: auto;
+  height: auto;
 }
 .container h2 {
   padding: 30px 50px;
@@ -127,20 +186,53 @@ footer {
 }
 .comment {
   width: 350px;
+  padding-left:20px;
+  margin:10px 10px 10px 10px;
   border-style: solid;
-  border-color: #ffccfc;
+  border-color: #d8c2d7;
   border-width: 4px;
+}
+.commentwrite {
+  width: 350px;
+  padding-left:5px;
+  margin:10px 10px 10px 10px;
 }
 .reply {
   width: 280px;
-  border-style: solid;
-  border-color: #ffccfc;
+  border-style:initial;
+  border-color: #331731;
   border-width: 4px;
 }
+.formbox {
+  border-radius:5px;
+  font-size: large;
+  animation: colorchange 20s linear 1s infinite;
+  -webkit-animation: colorchange 20s linear 0s infinite alternate;
+  width: auto;
+  padding: 10px 10px;
+  margin: 20px 20px;
+  text-align:center;
+}
+@keyframes colorchange
+    {
+      0%   {background: rgb(241, 210, 222)}
+      100% {background: rgb(235, 134, 196)}
+   }
+
+    @-webkit-keyframes colorchange /* Safari and Chrome - necessary duplicate */
+    {
+      0%   {background: rgb(241, 210, 222)}
+      100% {background: rgb(235, 134, 196)}
+   }
+
+.formbox form{
+  margin: 20px 20px 20px 20px;
+}
+
 .profiledisp {
   width: 400px;
+  height: auto;
   margin: 20px 20px;
-  background-color: rgb(156, 240, 243);
 }
 .registerlist {
   margin: auto;
@@ -178,35 +270,31 @@ footer {
   display: block;
   margin: 0px 10px 10px 0px;
 }
+
+/* FETCH AD STYLING */
 .ad {
-  margin-left: auto;
-  margin-right: auto;
-  width: 20em;
+  text-align: left;
+  padding-left:12px;
+  width: 17em;
   display: inline-block;
-  border: 5px solid #1c95a5;
-  margin: 20px;
-  padding: 10px;
-  background-color: rgb(156, 240, 243);
+  border-radius: 10px;
+  border: 5px outset #eebcf7;
+  margin: 10px;
+  background-image: linear-gradient(rgb(247, 207, 233), rgb(245, 184, 225));
 }
-#registerbutton {
-  width: 30%;
-  height: 40px;
-  background-color: green;
-  border: none;
-  color: white;
-  font-size: larger;
-  cursor: pointer;
-  margin-bottom: 20px;
-  border-radius: 25px;
+.ad h3{
+  letter-spacing: 2px;
 }
-#logout {
-  margin-right: 20px;
-  float: right;
+.ad ul{
+  list-style-type:none;
 }
+
+
+/* LIKE BUTTON STYLINGS */
 #likeb {
   border-style: none;
   margin: 5px 0px 10px 15px;
-  background-color: #1abc9c;
+  background-color: transparent;
 }
 #likeb:hover {
   fill: darkblue;
@@ -217,14 +305,17 @@ footer {
 #dislikeb {
   border-style: none;
   margin: 5px 0px 10px 5px;
-  background-color: #1abc9c;
+  background-color: transparent;
 }
 #dislikeb:hover {
-  fill: darkblue;
+  fill: rgb(139, 0, 35);
 }
 #dislikeb:active {
   fill: rgb(206, 4, 45);
 }
+
+
+/* delete BOX */
 CSS .box {
   display: none;
   background: #ccc;
@@ -259,6 +350,9 @@ CSS .box {
 }
 @media (max-width: 700px) {
   /* Breakpoint vid <700pxs skärmar (mobil portrait) */
+  #logo {
+    display:none;
+  }
   nav li {
     float: none; /* Gör menyn vertikal */
     width: 200px; /* Minska på elementens bredd (bara för hover effekten) */
@@ -271,7 +365,19 @@ CSS .box {
     font-size: x-large;
   }
   nav {
+    text-shadow: #272727;
+    background-image: url("./images/schmating.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 350px;
     margin-top: 10px; /* Lite space mellan meny och logo */
+  }
+
+  .infobox {
+    margin-left:0px;
+  }
+  .segment p{
+    font-size:large;
   }
 }
 #profilHeader {

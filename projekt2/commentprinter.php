@@ -1,6 +1,7 @@
 <div>
     <h3>JAVISST</h3>
 <?php
+if(isset($_GET['user'])){
 $compage = $_GET['user'];
 
 $conn = create_conn();
@@ -32,18 +33,19 @@ $result = $conn->query($sqlcomment);
             echo("</div>");
             $_SESSION[$comrow['posterid']] = $comrow['commentid'];
             // Print a link to reply
-            echo("
+            /*echo("
                 <form action='profile.php?user=".$compage."' method='POST'>
                     <button type='submit' name='reply'>Reply</button>
                 </form>");
             if(isset($_POST['reply'])){
             // Function to print replies
             include "reply.php";
-            }
+            }*/
         }
 
     } else {
         print("något gick fel, senaste felet:" . $conn->error);
+}
 }
 ?>
 </div>

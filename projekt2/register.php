@@ -6,12 +6,12 @@
             <br>
                 <li><label>Användarnamn</label><br><input type="text" name="uninput"/></li>
                 <li><label>Namn</label><br><input type="text" name="rninput"/></li><br>
-                <li><label>Lösenord</label><br><input type="text" name="pwinput"/></li>
-                <li><label>Repetera lösenordet</label><br><input type="text" name="pwrepeat"/></li><br>
+                <li><label>Lösenord</label><br><input type="password" name="pwinput"/></li>
+                <li><label>Repetera lösenordet</label><br><input type="password" name="pwrepeat"/></li><br>
                 <li><label>Email</label><br><input type="text" name="eminput"/></li>
                 <li><label>Postnummer</label><br><input type="text" name="pninput"/></li><br>
                 <label>Berätta lite om dig själv</label><br>
-                <textarea name="comment" rows="5" cols="40" name=bioinput></textarea><br>
+                <textarea rows="5" cols="40" name="bioinput"></textarea><br>
                 <li><label>Årslön</label> <input type="text" name="ysinput"/></li><br>
                 <li><label>Preferens</label><br>
                 <input type="radio" name="preference" value="1" id="male"/><label for="male" class="butlabel">Man</label><br>
@@ -24,13 +24,8 @@
     </form>
 
 <?php
-print("Stage 0");
 // Kolla att man klickat submit!
 if (isset($_POST['submit'])){
-    print("Stage 1");
-
-
-//$prefArr = array['Manlig', 'Kvinnliga', 'Annan', 'Båda', 'Alla'];
 
 //if (isset($_REQUEST['usr']) && isset($_REQUEST['psw'])  ) {
 //KOM IHÅG XSS PROTECTION
@@ -40,11 +35,11 @@ $repassword = test_input($_REQUEST['pwrepeat']);
 $realname = test_input($_POST['rninput']); 
 $email = test_input($_POST['eminput']); 
 $zip = test_input($_POST['pninput']); 
-$bio = test_input($_POST['bioinput']); 
+$bio = test_text($_POST['bioinput']); 
 $salary = test_input($_POST['ysinput']);
 $preference = test_input($_POST['preference']);
 
-    // OM båda passwordena är samma går vi vidare
+    // OM båda passwords är samma går vi vidare
     if ($password == $repassword){
     $conn = create_conn();
     
@@ -63,12 +58,23 @@ $preference = test_input($_POST['preference']);
     $stmt->execute(); // execute returnar true eller false
     $result = $stmt->get_result();
     $answer = mysqli_num_rows($result);
-
+    
+    
         // OM statement executades = Data har skrivits in i tabellen. SUCCESS.
         if ($answer == 1) {
-                $_SESSION['user'] = $username;
+            $getback = "SELECT * FROM users WHERE username = ?";
+                $restmt = $conn->prepare($getback);
+                $restmt->bind_param("s", $username);
+                $restmt->execute();
+                $reresult = $restmt->get_result();
+                $row = mysqli_fetch_assoc($reresult);
+
+                $_SESSION['user'] = $row['username'];
+                $_SESSION['userID'] = $row['id'];
+                $_SESSION['realname'] = $row['realname'];
+                
                 print("Du har registrerats!");
-                header('Refresh:1; url=https://cgi.arcada.fi/~irjalajo/BPREDUX/back-end/projekt2/profile.php?user='.$username);
+                header('Refresh:1; url=https://cgi.arcada.fi/~irjalajo/bredback/projekt2/index.php');
 
             } else {
                 // Ifall statement failade att executa.
@@ -81,5 +87,5 @@ $preference = test_input($_POST['preference']);
             echo("<h3>Du lyckades inte skriva ett lösenord två gånger</h3>");
     }
 } else {
-    $_SESSION['user'] = "";
+    $_SESSION['user'] = NULL;
 }

@@ -1,5 +1,5 @@
 <?php
-    $passtoiframe = $_GET['user'];
+    $passtoiframe = $_SESSION['user'];
 ?>
 
 <label for="trigger">Delete account</label>
@@ -17,10 +17,3 @@
 
     <h4>VARNING - Din profilsida tas bort</h4>
 </div>
-
-<?php // BROKEN
-    if(isset($_POST['delpw'])){
-        header('Refresh:2; url=profile.php?user='.$passtoiframe);
-    }
-
-?>
