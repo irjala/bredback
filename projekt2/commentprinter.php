@@ -1,5 +1,4 @@
 <div>
-    <h3>JAVISST</h3>
 <?php
 if(isset($_GET['user'])){
 $compage = $_GET['user'];

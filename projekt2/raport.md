@@ -1,7 +1,7 @@
 # Projekt 2
 Funkade det ok?
 ## SQL Databas (Uppgift 1)
-Min databas består av två tabeller: users och comments. Vi kan börja med users.
+Min databas består av två tabeller: users och comments (OBS Relations diagram i slutet på rapporten). Vi kan börja med users.
 ## Tabell: users
 Före jag ens började med mitt projekt hade jag redan en ideé om att jag ville ha tabell med user info där så mycket som möjligt om användaren finns. Den enda kolumnen som inte fanns i början var likes. Jag TRODDE först att jag skulle lägga likes i comments tabellen för det är samma kategori av information. Men när jag började skapa min comments tabell så hade visade sig allt för mycket mer komplicerat att ha likes i en separat tabell, varför??? Teorin bakom comments tabellen är att var och en comment är en unik bit som kan få sina egna comments. Sedan för att veta om en comment tillhör en profil ID eller en comment ID så använder jag en tinyint för att checka 0 eller 1 för en eller den andre. (Mera om comments senare)
 ### users ROW: ID (INT)
@@ -40,11 +40,10 @@ Här kommer IDn till den som skickar kommentaren. Då skulle man sluppit skriva 
 ### comments ROW: postername (varchar)
 $row['postername']
 ### comments ROW: reply (tinyint)
-0 eller 1, funkar som en bool
+0 eller 1, funkar som en bool för att avgöra ifall pageid (eller VART hör denna comment, till vilken "page"), hör till en userid (comment rakt på profilsidan) eller en annan commentid (comment svar på en annan comment).
 
 ## Va betyder detta då??
-Ehm
-
+Användare och användar data i en tabell, alla kommentarer till allt i en och samma tabell.
 
 ## Användarhantering (Uppgift 2)
 Då man öppnar hemsidan så kollar servern om en user Session variabel existerar. Ifall den inte gör det så presenteras man med länkar till Login eller Registrering. Då man registerar sig kan man fylla i all information i users tabellen förutom ID. (databasen har gåtts igenom ovanför).
