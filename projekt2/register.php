@@ -39,6 +39,9 @@ $bio = test_text($_POST['bioinput']);
 $salary = test_input($_POST['ysinput']);
 $preference = test_input($_POST['preference']);
 
+if(empty($username) || empty($password) || empty($realname) || empty($email) || empty($zip) || empty($username) || empty($bio) || empty($salary) || empty($preference)){
+    echo("<h2>Vänligen fyll i alla fälten tack</h2>");
+} else {
     // OM båda passwords är samma går vi vidare
     if ($password == $repassword){
     $conn = create_conn();
@@ -86,6 +89,7 @@ $preference = test_input($_POST['preference']);
             // else för lösenords dubbleteringen misslyckades
             echo("<h3>Du lyckades inte skriva ett lösenord två gånger</h3>");
     }
+}
 } else {
     $_SESSION['user'] = NULL;
 }

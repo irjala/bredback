@@ -228,8 +228,14 @@ footer {
 .formbox form{
   margin: 20px 20px 20px 20px;
 }
-
+.picdisp {
+  text-align:center;
+  width: 700px;
+  height: auto;
+  margin: 20px 20px;
+}
 .profiledisp {
+  list-style-type: none;
   width: 400px;
   height: auto;
   margin: 20px 20px;
