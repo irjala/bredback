@@ -1,2 +1,3 @@
 # bredback
-## Kort test
+## School project
+First year course learning PHP foundations.
